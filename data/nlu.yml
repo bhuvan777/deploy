@@ -105,31 +105,6 @@ nlu:
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
-    - am I talking to a human?
-- intent: ask_lower_stress
-  examples: |
-    - What do I do if I'm too stressed?
-    - How can I lower my stress level?
-    - What are some good ways to lower stress?
-    - What are good ways to relax?
-    - What are some good ways to relax?
-    - What are soome things I can do to lower my stress?
-- intent: ask_eat_healthy
-  examples: |
-    - What's considered a healthy diet?
-    - What is considered a good diet?
-    - How do I follow a healthy diet?
-    - What's an example of a healthy diet?
-    - How to remain healthy?
-    - How do i eat healthy?
-- intent: ask_exercise
-  examples: |
-    - What's a good of exercise for someone in their thirties?
-    - How much exercise should I be getting?
-    - How much exercise is recommended?
-    - Is walkiing once a day enough?
-    - How much exercise should I do every day?
-    - How many times per week should I go to the gym?
 - intent: inform
   examples: |
     - a full [8 hours](sleep)
@@ -274,7 +249,6 @@ nlu:
     - show me of the beautiful city of [chennai](city)
     - in the city [delhi](city)
     - in [jaipur](city)
-    - in [mumbai](city)
 - intent: price_ext
   examples: |
     - for the price of [10000](price)
