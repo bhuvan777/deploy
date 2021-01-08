@@ -1,0 +1,315 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - hey you
+    - hey bot
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - sure
+    - okay
+    - why not
+    - great
+    - cool
+    - pretty good
+    - fine
+    - you bet
+    - I sure did
+    - more or less
+    - yeah sure
+    - yeah actually I want to
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - absolutely not
+    - no thank you
+    - no I did not
+    - no thanks
+    - not great
+    - nope
+    - could have been better
+    - no limit
+    - no not at [all](ext)
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: ask_lower_stress
+  examples: |
+    - What do I do if I'm too stressed?
+    - How can I lower my stress level?
+    - What are some good ways to lower stress?
+    - What are good ways to relax?
+    - What are some good ways to relax?
+    - What are soome things I can do to lower my stress?
+- intent: ask_eat_healthy
+  examples: |
+    - What's considered a healthy diet?
+    - What is considered a good diet?
+    - How do I follow a healthy diet?
+    - What's an example of a healthy diet?
+    - How to remain healthy?
+    - How do i eat healthy?
+- intent: ask_exercise
+  examples: |
+    - What's a good of exercise for someone in their thirties?
+    - How much exercise should I be getting?
+    - How much exercise is recommended?
+    - Is walkiing once a day enough?
+    - How much exercise should I do every day?
+    - How many times per week should I go to the gym?
+- intent: inform
+  examples: |
+    - a full [8 hours](sleep)
+    - only [four hours](sleep)
+    - about [6 hours](sleep)
+    - [low](stress)
+    - [medium](stress)
+    - [high](stress)
+    - Yes, I went for a [run](exercise)
+    - uh huh an hour of [yoga](exercise)
+    - yep, I went for a [hike](exercise)
+    - Yes, I took the og for a [walk](exercise)
+    - I went [swimming](exercise)
+    - Yeah, I played [tennis](exercise)
+    - Took a [spin class](exercise)
+    - Did some [boxing](exercise)
+    - [rock climbing](exercise)
+    - played some [basketball](exercise)
+    - played [football](exercise)
+    - I did a [workout](exercise) video
+    - I want to get up early and go for a run
+    - Be more patient with my family
+    - Try to be a better friend
+    - Make sure to eat better tomorrow
+    - eat less junk food
+    - eat better
+    - spend less time on my phone
+    - don't procastinate
+    - Go to bed earlier
+    - Don't stay up too late
+    - try to make some time to meditate
+    - I ate pretty healthy overall
+    - lots of fruits and vegetables
+    - I ate a salad
+    - too many sancks
+    - too many sweets
+    - too much junk food
+    - a lot of crabs
+    - too much fatty food
+    - Get more exercise
+    - I did a [workout](exercise)
+    - only for [two hours](sleep)
+    - I ate a sandwich
+    - I will make the best chatbot ever
+- intent: out_of_scope
+  examples: |
+    - that's not what I want to do
+    - wait stop
+    - you are no help
+    - this is no help at all
+    - that's not right
+    - i don't like that
+    - how old are you
+    - this isn't working
+    - none of your business
+    - stop asking about my health or exercise
+    - stop asking
+    - nevermind
+    - I want to do something else
+    - I changed my mind
+    - I dont know
+    - what is wrong with you
+    - how would I know
+    - bibuvb v this is hobberidh
+    - fuck off
+    - what the hell is this
+    - iubeuibgrg89yhn
+    - knbonofbs
+    - uguyf luf
+- intent: thankyou
+  examples: |
+    - okay great thanks
+    - thank you
+    - sure thanks
+    - thanks bye
+    - thanks
+    - thank you so much
+- intent: email_info
+  examples: |
+    - my email is [thisisemail@gmail.com](email)
+    - my mail is [my.email@gmail.com](email)
+    - [bhuvan.purohit@gmail.com](email)
+    - sure this is my email [hellopummelo@gmail.com](email)
+    - this is my mail [bhuvanp@mnnit.ac.in](email)
+    - my email is [hellopummelopoke@gmail.com](email)
+    - my mail is [hellopummelopoke@gmail.com](email)
+- intent: filter+search_category
+  examples: |
+    - search for the [best](filter) [photographers](category) in [delhi](city)
+    - search for the [amazing](filter) [wedding](category) planners in [mumbai](city)
+    - show me the [best](filter) [photographers](category)
+    - Help me find an [awesome](filter) [decorators](category) for my wedding.
+    - an [amazing](filter) [salon](category) in [delhi](city)
+    - the [best](filter) [mehandi](category) in [mumbai](city)
+    - view some of the [astounding](filter) [wedding planner](category) there is in the city of [ajmer](city)
+    - show me [best](filter) [photographers](category) in the city of [mumbai](city) please
+    - I want you to show me [awesome](filter) [dj](category) in my city.
+    - [amazing](filter) [dj's](category) for a decent price.
+- intent: search_category
+  examples: |
+    - search for the [photographers](category) around [10000](price)
+    - search for the [wedding](category) planners
+    - show me the  [photographers](category)
+    - show me [wedding](category) vendors for the amount of [208666](price)
+    - search for [wedding](category)
+    - search for [makeup](category) artist at [kanpur](city) and the price should not be more than [20000](price)
+    - I want a good [makeover](category) artist.
+    - Help me find an [decorators](category) for my wedding.
+    - the finest [bridal salon](category)
+    - an  [salon](category) in [delhi](city)
+    - the [mehandi](category) in [mumbai](city)
+    - [Mehandi](category) artist in [jaipur](city)
+    - view some of the [wedding planner](category) there is in the city of [ajmer](city)
+    - best [planner](category) of wedding we can find in [bangalore](city)
+    - show me [videographers](category) for shooting the good quality video
+    - search for [wedding](category) in [delhi](city)
+    - show me [photographers](category)
+    - show me [makeup](category) artist in [delhi](city)
+    - show me [photographers](category) in the city of [mumbai](city) please
+    - search for a [photographer](category) in the city of [mumbai](city) please
+    - search for [makeup](category) artist in [mumbai](city)
+    - i want to view some [wedding planner](category) in my  city please
+    - show me [wedding](category)
+    - show me [makeup](category) vendors
+    - I want you to show me [dj](category) in my city.
+    - [dj's](category) for a decent price.
+    - show [wedding](category)
+    - [proposal](category) planning event vendors.
+    - hey show me some of the best [video](category) making vendors in my city [chennai](city)
+    - show me the [finest](filter) [makeup](category) artist there is
+    - show me the [best](filter) [makeup](category) artist in [delhi](city)
+    - for [wedding](category)
+- intent: city_search
+  examples: |
+    - in [mumbai](city)
+    - in the city [jaipur](city)
+    - [bangalore](city)
+    - I want to search for [kanpur](city)
+    - search for [delhi](city)
+    - in [delhi](city)
+    - search for allahabad , oh sorry in [mumbai](city)
+    - show me of the beautiful city of [chennai](city)
+    - in the city [delhi](city)
+    - in [jaipur](city)
+    - in [mumbai](city)
+- intent: price_ext
+  examples: |
+    - for the price of [10000](price)
+    - around [150000](price)
+    - [20000](price)
+    - price should be around [30000](price)
+    - the vendors price should be less than [25000](price)
+    - less than [4000](price)
+    - range must be of [60000](price)
+    - range of [400000](price)
+    - around [60000](price)
+    - the price should be in the range of [50000](price)
+    - around [50000](price)
+    - around [80000](price) please
+    - around [10000](price)
+- intent: everything
+  examples: |
+    - show me [all](ext)
+    - I want to view [everything](ext)
+    - show me [more](ext)
+    - I want to view [more results](ext)
+    - This does not satisfy me [show me more](ext)
+    - I want [more](ext)
+    - show me [everything](ext)
+    - display [more options](ext)
+    - [increase](ext) the search result
+- intent: vendor_search
+  examples: |
+    - find [vendors](vend) for me
+    - show top [artist](vend) to me
+    - show me [vendor](vend)
+    - hey, show top 5 [vendors](vend)
+    - show the best [artist](vend)
+    - show the best [planning](vend) manager
+    - top [planner](vend)
+    - amazing [party](vend)
+    - best [manager](vend)
+    - hey , top 5 [vendors](vend)

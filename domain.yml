@@ -1,0 +1,107 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- out_of_scope
+- vendor_search
+- deny
+- affirm
+- city_search
+- search_category
+- greet
+- thankyou
+- stop
+- price_ext
+- everything
+- filter+search_category
+- email_info
+- inform
+- goodbye
+- mood_great
+- mood_unhappy
+- bot_challenge
+- ask_lower_stress
+- ask_eat_healthy
+- ask_exercise
+entities:
+- category
+- city
+- email
+- exercise
+- ext
+- filter
+- price
+- sleep
+- stress
+- vend
+slots:
+  city:
+    type: unfeaturized
+    influence_conversation: false
+  email:
+    type: unfeaturized
+    influence_conversation: false
+  category:
+    type: unfeaturized
+    influence_conversation: false
+  price:
+    type: unfeaturized
+    influence_conversation: false
+  filter:
+    type: unfeaturized
+    influence_conversation: false
+  ext:
+    type: unfeaturized
+    influence_conversation: false
+  requested_slot:
+    type: text
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: Hey ! I am someone who will always be here to talk to you ;) , ask me anything , although it must in competence of our organization.
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  - text: You know that I am here whenever you need my help. Bye:)
+  - text: Bye Bye;
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_no_worries:
+  - text: No problem :)
+  utter_ask_continue:
+  - text: Sorry , I don't quite understand . Do you want to continue?
+  utter_email:
+  - text: Would you please provide your email registerd with us?
+  utter_welcome_premium:
+  - text: We are glad to see you :)
+  utter_welcome_basic:
+  - text: You are not registered with us
+  utter_ask_upgrade:
+  - text: Do you want to register?
+  utter_ask_city:
+  - text: That's great, may I ask that in which "city" are you looking for a vendor?
+  utter_ask_price:
+  - text: So , how much are you planning to spend on this vendor's booking ? (Personal advise, price does not matter that much in an occassion.)
+  utter_ask_vend:
+  - text: Sure , please tell me for what occassion are you looking for a vendor? (It will help in finding the best vendor for your event)
+actions:
+- action_check_api
+- action_check_email
+- utter_ask_city
+- utter_ask_continue
+- utter_ask_price
+- utter_ask_vend
+- utter_goodbye
+- utter_greet
+- utter_no_worries
+- utter_slots_values
+- utter_welcome_premium
+forms:
+  action_check_api: {}
