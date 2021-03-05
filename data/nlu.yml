@@ -149,6 +149,8 @@ nlu:
     - only for [two hours](sleep)
     - I ate a sandwich
     - I will make the best chatbot ever
+    - Let's started
+    - Let's get start
 - intent: out_of_scope
   examples: |
     - that's not what I want to do
@@ -287,3 +289,7 @@ nlu:
     - amazing [party](vend)
     - best [manager](vend)
     - hey , top 5 [vendors](vend)
+- intent: other
+  examples: |
+    - Other
+    - Others

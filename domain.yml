@@ -1,62 +1,92 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- out_of_scope
-- vendor_search
-- deny
-- affirm
-- city_search
-- search_category
-- greet
-- thankyou
-- stop
-- price_ext
-- everything
-- filter+search_category
-- email_info
-- inform
-- goodbye
-- mood_great
-- mood_unhappy
-- bot_challenge
+- other:
+    use_entities: true
+- out_of_scope:
+    use_entities: true
+- vendor_search:
+    use_entities: true
+- deny:
+    use_entities: true
+- affirm:
+    use_entities: true
+- city_search:
+    use_entities: true
+- search_category:
+    use_entities: true
+- greet:
+    use_entities: true
+- thankyou:
+    use_entities: true
+- price_ext:
+    use_entities: true
+- everything:
+    use_entities: true
+- filter+search_category:
+    use_entities: true
+- email_info:
+    use_entities: true
+- inform:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
 entities:
 - category
 - city
-- email
-- exercise
 - ext
 - filter
 - price
-- sleep
-- stress
 - vend
 slots:
   category:
-    type: unfeaturized
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   city:
-    type: unfeaturized
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   email:
-    type: unfeaturized
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   ext:
-    type: unfeaturized
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   filter:
-    type: unfeaturized
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   price:
-    type: unfeaturized
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   requested_slot:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
 responses:
   utter_greet:
-  - text: Hey ! I am someone who will always be here to talk to you ;) , ask me anything
-      , although it must in competence of our organization.
+  - text: Hey ! I am someone who will always be here to talk to you ;) , ask me anything , although it must in competence of our organization.
   utter_cheer_up:
   - image: https://i.imgur.com/nGF1K8f.jpg
     text: 'Here is something to cheer you up:'
@@ -83,14 +113,49 @@ responses:
   utter_ask_upgrade:
   - text: Do you want to register?
   utter_ask_city:
-  - text: That's great, may I ask that in which "city" are you looking for a vendor?
+  - buttons:
+    - payload: Mumbai
+      title: Mumbai
+    - payload: Pune
+      title: Pune
+    - payload: Delhi
+      title: Delhi
+    - payload: Kolkata
+      title: Kolkata
+    - payload: Others
+      title: Others
+    text: That's great, may I ask that in which "city" are you looking for a vendor?
   utter_ask_price:
-  - text: So , how much are you planning to spend on this vendor's booking ? (Personal
-      advise, price does not matter that much in an occassion.)
+  - text: So , how much are you planning to spend on this vendor's booking ? (Personal advise, price does not matter that much in an occassion.)
   utter_ask_vend:
-  - text: Sure , please tell me for what occassion are you looking for a vendor? (It
-      will help in finding the best vendor for your event)
+  - text: Sure , please tell me for what occassion are you looking for a vendor? (It will help in finding the best vendor for your event)
+  utter_satisfied:
+  - buttons:
+    - payload: Yes
+      title: Yes
+    - payload: No
+      title: No
+    text: Were you satisfied with the above results?
+  utter_greet_continue:
+  - buttons:
+    - payload: Let's get started
+      title: Let's get started
+    text: I welcome you to our organization EVENTTOW.
+  utter_info:
+  - text: Thank You for your feedback, follow our insta handle ->> , our customer service details, here we will add all the ways a person can contact our support team. We can also hand it off to a sales executive from here.
+  utter_inform:
+  - buttons:
+    - payload: Show me the best vendor
+      title: 'Show me the best vendor '
+    - payload: Top 5 vendors
+      title: Top 5 vendors
+    text: You are just one search away to find the best vendor for your occasion. Our organization has more than 1500+verified vendors across the country.
+  utter_other:
+  - text: Please input your search :)
 actions:
+- utter_info
+- utter_inform
+- utter_greet_continue
 - action_check_api
 - action_check_email
 - utter_ask_city
@@ -101,5 +166,7 @@ actions:
 - utter_greet
 - utter_no_worries
 - utter_welcome_premium
+- deactivate_loop
 forms:
   action_check_api: {}
+e2e_actions: []

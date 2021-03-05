@@ -1,35 +1,5 @@
 version: "2.0"
 stories:
-- story: happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
-- story: Welcome message, premium user
-  steps:
-  - intent: email_info
-  - action: action_check_email
-  - active_loop: action_check_email
-  - active_loop: null
 - story: search query
   steps:
   - intent: search_category
@@ -38,9 +8,9 @@ stories:
   - action: action_check_api
   - active_loop: action_check_api
   - active_loop: null
-  - intent: thankyou
-  - action: utter_no_worries
-  - action: utter_goodbye
+  - action: utter_satisfied
+  - intent: affirm
+  - action: utter_info
 - story: search query with all
   steps:
   - intent: search_category
@@ -49,9 +19,9 @@ stories:
   - intent: everything
   - action: action_check_api
   - active_loop: null
-  - intent: thankyou
-  - action: utter_no_worries
-  - action: utter_goodbye
+  - action: utter_satisfied
+  - intent: deny
+  - action: utter_info
 - story: search query continue
   steps:
   - intent: search_category
@@ -62,49 +32,11 @@ stories:
   - intent: affirm
   - action: action_check_api
   - active_loop: null
-  - intent: thankyou
-  - action: utter_no_worries
-  - action: utter_goodbye
-- story: search query (dis)continue
-  steps:
-  - intent: search_category
-  - action: action_check_api
-  - active_loop: action_check_api
-  - intent: out_of_scope
-  - action: utter_ask_continue
-  - intent: deny
-  - action: action_deactivate_loop
-  - active_loop: null
-  - action: utter_goodbye
-- story: interactive_story_1
-  steps:
-  - intent: email_info
-    entities:
-    - email: hellopummelopoke@gmail.com
-  - slot_was_set:
-    - email: hellopummelopoke@gmail.com
-  - action: action_check_email
-  - active_loop: action_check_email
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - action: utter_welcome_premium
-  - intent: email_info
-    entities:
-    - email: hellopummelopoke@gmail.com
-  - slot_was_set:
-    - email: hellopummelopoke@gmail.com
-  - action: action_check_email
-  - active_loop: action_check_email
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-
-
+  - action: utter_satisfied
+  - intent: affirm
+  - action: utter_info
 - story: search query with vend
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: vendor_search
   - action: utter_ask_vend
   - intent: search_category
@@ -113,10 +45,10 @@ stories:
   - action: action_check_api
   - active_loop: action_check_api
   - active_loop: null
-  - intent: thankyou
-  - action: utter_no_worries
-  - action: utter_goodbye
-
+  - action: deactivate_loop
+  - action: utter_satisfied
+  - intent: deny
+  - action: utter_info
 - story: search query same as above
   steps:
   - intent: vendor_search
@@ -125,89 +57,9 @@ stories:
   - action: action_check_api
   - active_loop: action_check_api
   - active_loop: null
-  - intent: thankyou
-  - action: utter_no_worries
-  - action: utter_goodbye
-
-
-- story: interactive_story_1
-  steps:
-  - intent: search_category
-    entities:
-    - category: wedding
-    - city: delhi
-  - slot_was_set:
-    - city: delhi
-  - slot_was_set:
-    - category: wedding
-  - action: action_check_api
-  - intent: search_category
-    entities:
-    - category: photographers
-  - slot_was_set:
-    - category: photographers
-  - action: utter_ask_city
-  - intent: city_search
-    entities:
-    - city: delhi
-  - slot_was_set:
-    - city: delhi
-  - action: action_check_api
-  - intent: search_category
-    entities:
-    - category: makeup
-    - city: delhi
-  - slot_was_set:
-    - city: delhi
-  - slot_was_set:
-    - category: makeup
-  - action: action_check_api
-  - intent: stop
-- story: interactive_story_1
-  steps:
-  - intent: search_category
-    entities:
-    - category: photographers
-    - city: mumbai
-  - slot_was_set:
-    - city: mumbai
-  - slot_was_set:
-    - category: photographers
-  - action: action_check_api
-  - active_loop: action_check_api
-  - slot_was_set:
-    - category: photographers
-  - slot_was_set:
-    - city: mumbai
-  - slot_was_set:
-    - category: photographers
-  - slot_was_set:
-    - city: mumbai
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - intent: search_category
-    entities:
-    - category: photographer
-    - city: mumbai
-  - slot_was_set:
-    - city: mumbai
-  - slot_was_set:
-    - category: photographer
-  - action: action_check_api
-  - active_loop: action_check_api
-  - slot_was_set:
-    - category: photographer
-  - slot_was_set:
-    - city: mumbai
-  - slot_was_set:
-    - category: photographer
-  - slot_was_set:
-    - city: mumbai
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - intent: stop
+  - action: utter_satisfied
+  - intent: affirm
+  - action: utter_info
 - story: interactive_story_1
   steps:
   - intent: search_category
@@ -319,7 +171,7 @@ stories:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-- story: interactive_story_1
+- story: interactive_story_2
   steps:
   - intent: search_category
     entities:
@@ -383,13 +235,8 @@ stories:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-
-
-
-- story: interactive_story_1
+- story: interactive_story_3
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: search_category
     entities:
     - category: makeup
@@ -502,10 +349,7 @@ stories:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - intent: thankyou
-  - action: utter_no_worries
-
-- story: interactive_story_1
+- story: interactive_story_4
   steps:
   - intent: vendor_search
     entities:
