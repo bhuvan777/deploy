@@ -48,6 +48,10 @@ entities:
 - filter
 - price
 - vend
+- exercise
+- email
+- stress
+- sleep
 slots:
   category:
     type: rasa.shared.core.slots.UnfeaturizedSlot
@@ -128,14 +132,18 @@ responses:
   utter_ask_price:
   - text: So , how much are you planning to spend on this vendor's booking ? (Personal advise, price does not matter that much in an occassion.)
   utter_ask_vend:
-  - text: Sure , please tell me for what occassion are you looking for a vendor? (It will help in finding the best vendor for your event)
-  utter_satisfied:
   - buttons:
-    - payload: Yes
-      title: Yes
-    - payload: No
-      title: No
-    text: Were you satisfied with the above results?
+    - payload: Wedding
+      title: Wedding
+    - payload: Makeup Artist
+      title: Makeup Artist
+    - payload: Choreographer
+      title: Choreographer
+    - payload: Photographer
+      title: Photographer
+    - payload: Others
+      title: Others
+    text: Sure , please tell me for what occassion are you looking for a vendor? (It will help in finding the best vendor for your event)
   utter_greet_continue:
   - buttons:
     - payload: Let's get started

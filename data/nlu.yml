@@ -17,6 +17,8 @@ nlu:
     - good afternoon
     - hey you
     - hey bot
+    - heyo
+    - heyoo
 - intent: goodbye
   examples: |
     - good afternoon
@@ -50,6 +52,7 @@ nlu:
     - more or less
     - yeah sure
     - yeah actually I want to
+    - Yes
 - intent: deny
   examples: |
     - no
@@ -68,6 +71,7 @@ nlu:
     - could have been better
     - no limit
     - no not at [all](ext)
+    - No
 - intent: mood_great
   examples: |
     - perfect
@@ -151,6 +155,7 @@ nlu:
     - I will make the best chatbot ever
     - Let's started
     - Let's get start
+    - Let's get started
 - intent: out_of_scope
   examples: |
     - that's not what I want to do
@@ -239,6 +244,9 @@ nlu:
     - show me the [finest](filter) [makeup](category) artist there is
     - show me the [best](filter) [makeup](category) artist in [delhi](city)
     - for [wedding](category)
+    - [wedding](category)
+    - show me the [best](filter) [wedding](category) [vendor](vend) around [456799](price)
+    - for [makeup](category)
 - intent: city_search
   examples: |
     - in [mumbai](city)
@@ -251,6 +259,8 @@ nlu:
     - show me of the beautiful city of [chennai](city)
     - in the city [delhi](city)
     - in [jaipur](city)
+    - [Mumbai](city)
+    - [Delhi](city)
 - intent: price_ext
   examples: |
     - for the price of [10000](price)
@@ -266,6 +276,9 @@ nlu:
     - around [50000](price)
     - around [80000](price) please
     - around [10000](price)
+    - [678999](price)
+    - [56000](price)
+    - [456000](price)
 - intent: everything
   examples: |
     - show me [all](ext)
@@ -289,6 +302,8 @@ nlu:
     - amazing [party](vend)
     - best [manager](vend)
     - hey , top 5 [vendors](vend)
+    - Show me the [best](filter) [vendor](vend)
+    - show me a [vendor](vend)
 - intent: other
   examples: |
     - Other

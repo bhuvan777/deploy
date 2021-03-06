@@ -8,7 +8,6 @@ stories:
   - action: action_check_api
   - active_loop: action_check_api
   - active_loop: null
-  - action: utter_satisfied
   - intent: affirm
   - action: utter_info
 - story: search query with all
@@ -19,7 +18,6 @@ stories:
   - intent: everything
   - action: action_check_api
   - active_loop: null
-  - action: utter_satisfied
   - intent: deny
   - action: utter_info
 - story: search query continue
@@ -32,7 +30,6 @@ stories:
   - intent: affirm
   - action: action_check_api
   - active_loop: null
-  - action: utter_satisfied
   - intent: affirm
   - action: utter_info
 - story: search query with vend
@@ -45,8 +42,7 @@ stories:
   - action: action_check_api
   - active_loop: action_check_api
   - active_loop: null
-  - action: deactivate_loop
-  - action: utter_satisfied
+  - action: action_deactivate_loop
   - intent: deny
   - action: utter_info
 - story: search query same as above
@@ -57,7 +53,6 @@ stories:
   - action: action_check_api
   - active_loop: action_check_api
   - active_loop: null
-  - action: utter_satisfied
   - intent: affirm
   - action: utter_info
 - story: interactive_story_1
@@ -389,3 +384,146 @@ stories:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
+- story: Story from Conversation ID 4ad3d4af6aad4405bdc08a0caa4138b4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+    entities:
+    - filter: best
+    - vend: vendor
+  - slot_was_set:
+    - filter: best
+  - action: utter_ask_vend
+  - intent: search_category
+    entities:
+    - category: wedding
+  - slot_was_set:
+    - category: wedding
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: wedding
+  - slot_was_set:
+    - category: wedding
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '678999'
+  - slot_was_set:
+    - price: '678999'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '678999'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: city_search
+    entities:
+    - city: Mumbai
+  - slot_was_set:
+    - city: Mumbai
+  - action: action_check_api
+  - slot_was_set:
+    - city: Mumbai
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: affirm
+  - action: utter_info
+- story: Story from Conversation ID 388a0f7ca9364e8287e67cfc1f44c47f
+  steps:
+  - intent: search_category
+    entities:
+    - filter: best
+    - category: wedding
+    - vend: vendor
+    - price: '456799'
+  - slot_was_set:
+    - category: wedding
+  - slot_was_set:
+    - filter: best
+  - slot_was_set:
+    - price: '456799'
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - price: '456799'
+  - slot_was_set:
+    - category: wedding
+  - slot_was_set:
+    - category: wedding
+  - slot_was_set:
+    - requested_slot: city
+  - intent: city_search
+    entities:
+    - city: Mumbai
+  - slot_was_set:
+    - city: Mumbai
+  - action: action_check_api
+  - slot_was_set:
+    - city: Mumbai
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: deny
+  - action: utter_info
+- story: Story from Conversation ID 6c774babedb84b34aa14ee64f7563727
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+    entities:
+    - filter: best
+    - vend: vendor
+  - slot_was_set:
+    - filter: best
+  - action: utter_ask_vend
+  - intent: search_category
+    entities:
+    - category: wedding
+  - slot_was_set:
+    - category: wedding
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: wedding
+  - slot_was_set:
+    - category: wedding
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '456000'
+  - slot_was_set:
+    - price: '456000'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '456000'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: city_search
+    entities:
+    - city: Mumbai
+  - slot_was_set:
+    - city: Mumbai
+  - action: action_check_api
+  - slot_was_set:
+    - city: Mumbai
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: affirm
+  - action: utter_info
