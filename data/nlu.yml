@@ -19,6 +19,10 @@ nlu:
     - hey bot
     - heyo
     - heyoo
+    - heyaa
+    - hiii
+    - NAMASTE
+    - PRANAM
 - intent: goodbye
   examples: |
     - good afternoon
@@ -34,8 +38,6 @@ nlu:
     - see you later
 - intent: affirm
   examples: |
-    - yes
-    - y
     - indeed
     - of course
     - that sounds good
@@ -52,11 +54,10 @@ nlu:
     - more or less
     - yeah sure
     - yeah actually I want to
+    - YES
     - Yes
 - intent: deny
   examples: |
-    - no
-    - n
     - never
     - I don't think so
     - don't like that
@@ -111,18 +112,7 @@ nlu:
     - am I talking to a bot?
 - intent: inform
   examples: |
-    - a full [8 hours](sleep)
-    - only [four hours](sleep)
-    - about [6 hours](sleep)
-    - [low](stress)
-    - [medium](stress)
-    - [high](stress)
-    - Yes, I went for a [run](exercise)
-    - uh huh an hour of [yoga](exercise)
-    - yep, I went for a [hike](exercise)
-    - Yes, I took the og for a [walk](exercise)
     - I went [swimming](exercise)
-    - Yeah, I played [tennis](exercise)
     - Took a [spin class](exercise)
     - Did some [boxing](exercise)
     - [rock climbing](exercise)
@@ -149,8 +139,6 @@ nlu:
     - a lot of crabs
     - too much fatty food
     - Get more exercise
-    - I did a [workout](exercise)
-    - only for [two hours](sleep)
     - I ate a sandwich
     - I will make the best chatbot ever
     - Let's started
@@ -181,6 +169,9 @@ nlu:
     - iubeuibgrg89yhn
     - knbonofbs
     - uguyf luf
+    - iljvib iono
+    - why shoud I do that??
+    - iuvui bui
 - intent: thankyou
   examples: |
     - okay great thanks
@@ -247,6 +238,9 @@ nlu:
     - [wedding](category)
     - show me the [best](filter) [wedding](category) [vendor](vend) around [456799](price)
     - for [makeup](category)
+    - [Wedding](category)
+    - [Makeup](category) Artist
+    - [Choreographer](category)
 - intent: city_search
   examples: |
     - in [mumbai](city)
@@ -261,6 +255,8 @@ nlu:
     - in [jaipur](city)
     - [Mumbai](city)
     - [Delhi](city)
+    - [mumbai](city)
+    - [delhi](city)
 - intent: price_ext
   examples: |
     - for the price of [10000](price)
@@ -279,6 +275,17 @@ nlu:
     - [678999](price)
     - [56000](price)
     - [456000](price)
+    - [678000](price)
+    - [56789](price)
+    - [78900](price)
+    - [78000](price)
+    - [560000](price)
+    - [679000](price)
+    - [67900](price)
+    - [6700000](price)
+    - [800000](price)
+    - [670000](price)
+    - [890000](price)
 - intent: everything
   examples: |
     - show me [all](ext)
@@ -304,7 +311,12 @@ nlu:
     - hey , top 5 [vendors](vend)
     - Show me the [best](filter) [vendor](vend)
     - show me a [vendor](vend)
+    - Show me [all](ext) the [vendors](vend)
+    - Show me different  [vendors](vend)
+    - show me fifferent [vendors](vend)
+    - Show me the [best](filter) "Five" [vendors](vend)
 - intent: other
   examples: |
     - Other
     - Others
+    - others

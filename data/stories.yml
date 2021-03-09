@@ -2,389 +2,20 @@ version: "2.0"
 stories:
 - story: search query
   steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
   - intent: search_category
   - action: utter_ask_city
   - intent: city_search
   - action: action_check_api
+  - intent: other
+  - action: utter_other
   - active_loop: action_check_api
   - active_loop: null
-  - intent: affirm
-  - action: utter_info
-- story: search query with all
-  steps:
-  - intent: search_category
-  - action: action_check_api
-  - active_loop: action_check_api
-  - intent: everything
-  - action: action_check_api
-  - active_loop: null
-  - intent: deny
-  - action: utter_info
-- story: search query continue
-  steps:
-  - intent: search_category
-  - action: action_check_api
-  - active_loop: action_check_api
-  - intent: out_of_scope
-  - action: utter_ask_continue
-  - intent: affirm
-  - action: action_check_api
-  - active_loop: null
-  - intent: affirm
-  - action: utter_info
 - story: search query with vend
-  steps:
-  - intent: vendor_search
-  - action: utter_ask_vend
-  - intent: search_category
-  - action: utter_ask_city
-  - intent: city_search
-  - action: action_check_api
-  - active_loop: action_check_api
-  - active_loop: null
-  - action: action_deactivate_loop
-  - intent: deny
-  - action: utter_info
-- story: search query same as above
-  steps:
-  - intent: vendor_search
-  - action: utter_ask_vend
-  - intent: search_category
-  - action: action_check_api
-  - active_loop: action_check_api
-  - active_loop: null
-  - intent: affirm
-  - action: utter_info
-- story: interactive_story_1
-  steps:
-  - intent: search_category
-    entities:
-    - category: makeup
-    - city: mumbai
-  - slot_was_set:
-    - city: mumbai
-  - slot_was_set:
-    - category: makeup
-  - action: action_check_api
-  - active_loop: action_check_api
-  - slot_was_set:
-    - category: makeup
-  - slot_was_set:
-    - city: mumbai
-  - slot_was_set:
-    - category: makeup
-  - slot_was_set:
-    - city: mumbai
-  - slot_was_set:
-    - requested_slot: price
-  - slot_was_set:
-    - price: '0'
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - intent: price_ext
-    entities:
-    - price: '60000'
-  - slot_was_set:
-    - price: '60000'
-  - action: action_check_api
-  - active_loop: action_check_api
-  - slot_was_set:
-    - price: '60000'
-  - slot_was_set:
-    - category: makeup
-  - slot_was_set:
-    - city: mumbai
-  - slot_was_set:
-    - price: '60000'
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - intent: price_ext
-    entities:
-    - price: '50000'
-  - slot_was_set:
-    - price: '50000'
-  - action: action_check_api
-  - active_loop: action_check_api
-  - slot_was_set:
-    - price: '50000'
-  - slot_was_set:
-    - category: makeup
-  - slot_was_set:
-    - city: mumbai
-  - slot_was_set:
-    - price: '50000'
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - intent: search_category
-    entities:
-    - category: wedding planner
-  - slot_was_set:
-    - category: wedding planner
-  - action: utter_ask_city
-  - intent: out_of_scope
-  - action: action_check_api
-  - active_loop: action_check_api
-  - slot_was_set:
-    - price: '50000'
-  - slot_was_set:
-    - category: wedding planner
-  - slot_was_set:
-    - city: mumbai
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - intent: search_category
-    entities:
-    - category: wedding
-  - slot_was_set:
-    - category: wedding
-  - action: utter_ask_city
-  - intent: city_search
-    entities:
-    - city: delhi
-  - slot_was_set:
-    - city: delhi
-  - action: utter_ask_price
-  - intent: price_ext
-    entities:
-    - price: '50000'
-  - slot_was_set:
-    - price: '50000'
-  - action: action_check_api
-  - active_loop: action_check_api
-  - slot_was_set:
-    - price: '50000'
-  - slot_was_set:
-    - category: wedding
-  - slot_was_set:
-    - city: delhi
-  - slot_was_set:
-    - price: '50000'
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-- story: interactive_story_2
-  steps:
-  - intent: search_category
-    entities:
-    - category: makeup
-  - slot_was_set:
-    - category: makeup
-  - action: utter_ask_city
-  - intent: city_search
-    entities:
-    - city: mumbai
-  - slot_was_set:
-    - city: mumbai
-  - action: action_check_api
-  - active_loop: action_check_api
-  - slot_was_set:
-    - category: makeup
-  - slot_was_set:
-    - city: mumbai
-  - slot_was_set:
-    - city: mumbai
-  - slot_was_set:
-    - requested_slot: price
-  - intent: out_of_scope
-  - action: utter_ask_continue
-  - intent: affirm
-  - action: action_check_api
-  - slot_was_set:
-    - requested_slot: price
-  - slot_was_set:
-    - price: '80000'
-  - slot_was_set:
-    - price: '80000'
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - intent: search_category
-    entities:
-    - category: wedding
-  - slot_was_set:
-    - category: wedding
-  - action: utter_ask_city
-  - intent: out_of_scope
-  - action: utter_ask_continue
-  - intent: affirm
-  - action: utter_ask_city
-  - intent: city_search
-    entities:
-    - city: jaipur
-  - slot_was_set:
-    - city: jaipur
-  - action: action_check_api
-  - active_loop: action_check_api
-  - slot_was_set:
-    - price: '80000'
-  - slot_was_set:
-    - category: wedding
-  - slot_was_set:
-    - city: jaipur
-  - slot_was_set:
-    - city: jaipur
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-- story: interactive_story_3
-  steps:
-  - intent: search_category
-    entities:
-    - category: makeup
-  - slot_was_set:
-    - category: makeup
-  - action: utter_ask_city
-  - intent: city_search
-    entities:
-    - city: mumbai
-  - slot_was_set:
-    - city: mumbai
-  - action: action_check_api
-  - active_loop: action_check_api
-  - slot_was_set:
-    - category: makeup
-  - slot_was_set:
-    - city: mumbai
-  - slot_was_set:
-    - city: mumbai
-  - slot_was_set:
-    - requested_slot: price
-  - slot_was_set:
-    - price: '0'
-  - slot_was_set:
-    - ext: null
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - intent: search_category
-    entities:
-    - filter: best
-    - category: makeup
-    - city: delhi
-  - slot_was_set:
-    - city: delhi
-  - slot_was_set:
-    - category: makeup
-  - slot_was_set:
-    - filter: best
-  - action: action_check_api
-  - active_loop: action_check_api
-  - slot_was_set:
-    - price: '0'
-  - slot_was_set:
-    - category: makeup
-  - slot_was_set:
-    - city: delhi
-  - slot_was_set:
-    - category: makeup
-  - slot_was_set:
-    - city: delhi
-  - slot_was_set:
-    - ext: null
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - intent: everything
-    entities:
-    - ext: all
-  - slot_was_set:
-    - ext: all
-  - action: action_check_api
-  - active_loop: action_check_api
-  - slot_was_set:
-    - price: '0'
-  - slot_was_set:
-    - category: makeup
-  - slot_was_set:
-    - city: delhi
-  - slot_was_set:
-    - ext: null
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - intent: price_ext
-    entities:
-    - price: '10000'
-  - slot_was_set:
-    - price: '10000'
-  - action: action_check_api
-  - active_loop: action_check_api
-  - slot_was_set:
-    - price: '10000'
-  - slot_was_set:
-    - category: makeup
-  - slot_was_set:
-    - city: delhi
-  - slot_was_set:
-    - price: '10000'
-  - slot_was_set:
-    - ext: null
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - intent: everything
-    entities:
-    - ext: everything
-  - slot_was_set:
-    - ext: everything
-  - action: action_check_api
-  - active_loop: action_check_api
-  - slot_was_set:
-    - price: '10000'
-  - slot_was_set:
-    - category: makeup
-  - slot_was_set:
-    - city: delhi
-  - slot_was_set:
-    - ext: null
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-- story: interactive_story_4
-  steps:
-  - intent: vendor_search
-    entities:
-    - vend: vendors
-  - action: utter_ask_vend
-  - intent: search_category
-    entities:
-    - category: wedding
-  - slot_was_set:
-    - category: wedding
-  - action: utter_ask_city
-  - intent: city_search
-    entities:
-    - city: mumbai
-  - slot_was_set:
-    - city: mumbai
-  - action: action_check_api
-  - active_loop: action_check_api
-  - slot_was_set:
-    - category: wedding
-  - slot_was_set:
-    - city: mumbai
-  - slot_was_set:
-    - city: mumbai
-  - slot_was_set:
-    - requested_slot: price
-  - intent: out_of_scope
-  - action: utter_ask_continue
-  - intent: affirm
-  - action: action_check_api
-  - slot_was_set:
-    - requested_slot: price
-  - slot_was_set:
-    - price: '0'
-  - slot_was_set:
-    - ext: null
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-- story: Story from Conversation ID 4ad3d4af6aad4405bdc08a0caa4138b4
   steps:
   - intent: greet
   - action: utter_greet
@@ -392,89 +23,21 @@ stories:
   - intent: inform
   - action: utter_inform
   - intent: vendor_search
-    entities:
-    - filter: best
-    - vend: vendor
-  - slot_was_set:
-    - filter: best
-  - action: utter_ask_vend
+  - action: utter_ask_category
   - intent: search_category
-    entities:
-    - category: wedding
-  - slot_was_set:
-    - category: wedding
+  - action: utter_ask_city
+  - intent: city_search
   - action: action_check_api
   - active_loop: action_check_api
-  - slot_was_set:
-    - category: wedding
-  - slot_was_set:
-    - category: wedding
-  - slot_was_set:
-    - requested_slot: price
-  - intent: price_ext
-    entities:
-    - price: '678999'
-  - slot_was_set:
-    - price: '678999'
-  - action: action_check_api
-  - slot_was_set:
-    - price: '678999'
-  - slot_was_set:
-    - requested_slot: city
-  - intent: city_search
-    entities:
-    - city: Mumbai
-  - slot_was_set:
-    - city: Mumbai
-  - action: action_check_api
-  - slot_was_set:
-    - city: Mumbai
-  - slot_was_set:
-    - ext: null
   - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - intent: affirm
-  - action: utter_info
-- story: Story from Conversation ID 388a0f7ca9364e8287e67cfc1f44c47f
+- story: search query same as above
   steps:
+  - intent: vendor_search
+  - action: utter_ask_category
   - intent: search_category
-    entities:
-    - filter: best
-    - category: wedding
-    - vend: vendor
-    - price: '456799'
-  - slot_was_set:
-    - category: wedding
-  - slot_was_set:
-    - filter: best
-  - slot_was_set:
-    - price: '456799'
   - action: action_check_api
   - active_loop: action_check_api
-  - slot_was_set:
-    - price: '456799'
-  - slot_was_set:
-    - category: wedding
-  - slot_was_set:
-    - category: wedding
-  - slot_was_set:
-    - requested_slot: city
-  - intent: city_search
-    entities:
-    - city: Mumbai
-  - slot_was_set:
-    - city: Mumbai
-  - action: action_check_api
-  - slot_was_set:
-    - city: Mumbai
-  - slot_was_set:
-    - ext: null
   - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - intent: deny
-  - action: utter_info
 - story: Story from Conversation ID 6c774babedb84b34aa14ee64f7563727
   steps:
   - intent: greet
@@ -488,7 +51,7 @@ stories:
     - vend: vendor
   - slot_was_set:
     - filter: best
-  - action: utter_ask_vend
+  - action: utter_ask_category
   - intent: search_category
     entities:
     - category: wedding
@@ -520,6 +83,626 @@ stories:
   - action: action_check_api
   - slot_was_set:
     - city: Mumbai
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+- story: Story from Conversation ID 22a55f10261d4ff28490060c42f22b01
+  steps:
+  - intent: vendor_search
+    entities:
+    - vend: vendor
+  - action: utter_ask_category
+  - intent: search_category
+    entities:
+    - category: Wedding
+  - slot_was_set:
+    - category: Wedding
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: Wedding
+  - slot_was_set:
+    - category: Wedding
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '678000'
+  - slot_was_set:
+    - price: '678000'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '678000'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: city_search
+    entities:
+    - city: Delhi
+  - slot_was_set:
+    - city: Delhi
+  - action: action_check_api
+  - slot_was_set:
+    - city: Delhi
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+- story: Story from Conversation ID 8f17dd73cee44d25ba44dd027c66fa6e
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+    entities:
+    - filter: best
+    - vend: vendor
+  - slot_was_set:
+    - filter: best
+  - action: utter_ask_category
+  - intent: search_category
+    entities:
+    - category: Makeup
+  - slot_was_set:
+    - category: Makeup
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: Makeup
+  - slot_was_set:
+    - category: Makeup
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '56789'
+  - slot_was_set:
+    - price: '56789'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '56789'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: city_search
+    entities:
+    - city: Delhi
+  - slot_was_set:
+    - city: Delhi
+  - action: action_check_api
+  - slot_was_set:
+    - city: Delhi
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+- story: Story from Conversation ID 0f3db667703a401ab709a0e9fa01cea0
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+    entities:
+    - filter: best
+    - vend: vendor
+  - slot_was_set:
+    - filter: best
+  - action: utter_ask_category
+  - intent: search_category
+    entities:
+    - category: Makeup
+  - slot_was_set:
+    - category: Makeup
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: Makeup
+  - slot_was_set:
+    - category: Makeup
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '78900'
+  - slot_was_set:
+    - price: '78900'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '78900'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: other
+  - action: utter_other
+  - intent: city_search
+    entities:
+    - city: mumbai
+  - slot_was_set:
+    - city: mumbai
+  - action: action_check_api
+  - slot_was_set:
+    - city: mumbai
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: deny
+  - action: utter_info
+- story: Story from Conversation ID 44c2921d97624e7db99a6b06274df8d7
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+    entities:
+    - ext: all
+    - vend: vendors
+  - slot_was_set:
+    - ext: all
+  - action: utter_ask_category
+  - intent: search_category
+    entities:
+    - category: Makeup
+  - slot_was_set:
+    - category: Makeup
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: Makeup
+  - slot_was_set:
+    - category: Makeup
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '78000'
+  - slot_was_set:
+    - price: '78000'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '78000'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: city_search
+    entities:
+    - city: Delhi
+  - slot_was_set:
+    - city: Delhi
+  - action: action_check_api
+  - slot_was_set:
+    - city: Delhi
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: affirm
+  - action: utter_info
+- story: Story from Conversation ID 104e91b63ffe458f8ea2a0a130263abf
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+    entities:
+    - ext: all
+    - vend: vendors
+  - slot_was_set:
+    - ext: all
+  - action: utter_ask_category
+  - intent: search_category
+    entities:
+    - category: Makeup
+  - slot_was_set:
+    - category: Makeup
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: Makeup
+  - slot_was_set:
+    - category: Makeup
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '560000'
+  - slot_was_set:
+    - price: '560000'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '560000'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: city_search
+    entities:
+    - city: Mumbai
+  - slot_was_set:
+    - city: Mumbai
+  - action: action_check_api
+  - slot_was_set:
+    - city: Mumbai
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: affirm
+  - action: utter_info
+- story: Story from Conversation ID d20944d58c8747ce997412d65803e637
+  steps:
+  - intent: vendor_search
+    entities:
+    - vend: vendor
+  - action: utter_ask_category
+  - intent: other
+  - action: utter_other
+  - intent: search_category
+    entities:
+    - category: wedding
+  - slot_was_set:
+    - category: wedding
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: wedding
+  - slot_was_set:
+    - category: wedding
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '560000'
+  - slot_was_set:
+    - price: '560000'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '560000'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: other
+  - action: utter_other
+  - intent: city_search
+    entities:
+    - city: mumbai
+  - slot_was_set:
+    - city: mumbai
+  - action: action_check_api
+  - slot_was_set:
+    - city: mumbai
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: deny
+  - action: utter_info
+- story: category Story
+  steps:
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+  - action: utter_ask_category
+  - intent: search_category
+  - action: action_check_api
+  - active_loop: action_check_api
+  - intent: other
+  - action: utter_other
+  - active_loop: null
+- story: Story from Conversation ID a04b9c93e5084a9dbeb8944341701229
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+    entities:
+    - vend: vendors
+  - action: utter_ask_category
+  - intent: search_category
+    entities:
+    - category: Wedding
+  - slot_was_set:
+    - category: Wedding
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: Wedding
+  - slot_was_set:
+    - category: Wedding
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '679000'
+  - slot_was_set:
+    - price: '679000'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '679000'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: other
+  - action: utter_other
+  - intent: city_search
+    entities:
+    - city: mumbai
+  - slot_was_set:
+    - city: mumbai
+  - action: action_check_api
+  - slot_was_set:
+    - city: mumbai
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: affirm
+  - action: utter_info
+- story: Story from Conversation ID c6c791f9863c4ee6a78c20e6e8a96c18
+  steps:
+  - intent: vendor_search
+    entities:
+    - vend: vendors
+  - action: utter_ask_category
+  - intent: other
+  - action: utter_other
+  - intent: search_category
+    entities:
+    - category: wedding
+  - slot_was_set:
+    - category: wedding
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: wedding
+  - slot_was_set:
+    - category: wedding
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '560000'
+  - slot_was_set:
+    - price: '560000'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '560000'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: other
+  - action: utter_other
+  - intent: city_search
+    entities:
+    - city: delhi
+  - slot_was_set:
+    - city: delhi
+  - action: action_check_api
+  - slot_was_set:
+    - city: delhi
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: affirm
+  - action: utter_info
+- story: Story from Conversation ID f774339eb6df4aa2b31e3cedada116ab
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+    entities:
+    - vend: vendors
+  - action: utter_ask_category
+  - intent: search_category
+    entities:
+    - category: Makeup
+  - slot_was_set:
+    - category: Makeup
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: Makeup
+  - slot_was_set:
+    - category: Makeup
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '67900'
+  - slot_was_set:
+    - price: '67900'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '67900'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: city_search
+    entities:
+    - city: Delhi
+  - slot_was_set:
+    - city: Delhi
+  - action: action_check_api
+  - slot_was_set:
+    - city: Delhi
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: affirm
+  - action: utter_info
+- story: Story from Conversation ID 94dd0f91855b448eb7cf30c78abd3f7f
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+    entities:
+    - filter: best
+    - vend: vendors
+  - slot_was_set:
+    - filter: best
+  - action: utter_ask_category
+  - intent: other
+  - action: utter_other
+  - intent: search_category
+    entities:
+    - category: wedding
+  - slot_was_set:
+    - category: wedding
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: wedding
+  - slot_was_set:
+    - category: wedding
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '6700000'
+  - slot_was_set:
+    - price: '6700000'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '6700000'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: city_search
+    entities:
+    - city: Delhi
+  - slot_was_set:
+    - city: Delhi
+  - action: action_check_api
+  - slot_was_set:
+    - city: Delhi
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: affirm
+  - action: utter_info
+- story: Story from Conversation ID 65ac192e3f594499937246c9884b7102
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+    entities:
+    - filter: best
+    - vend: vendors
+  - slot_was_set:
+    - filter: best
+  - action: utter_ask_category
+  - intent: search_category
+    entities:
+    - category: Choreographer
+  - slot_was_set:
+    - category: Choreographer
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: Choreographer
+  - slot_was_set:
+    - category: Choreographer
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '800000'
+  - slot_was_set:
+    - price: '800000'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '800000'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: other
+  - action: utter_other
+  - intent: city_search
+    entities:
+    - city: mumbai
+  - slot_was_set:
+    - city: mumbai
+  - action: action_check_api
+  - slot_was_set:
+    - city: mumbai
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: deny
+  - action: utter_info
+- story: Story from Conversation ID 61faf8b2b39f47dbb11fc10632fb7f16
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+    entities:
+    - filter: best
+    - vend: vendors
+  - slot_was_set:
+    - filter: best
+  - action: utter_ask_category
+  - intent: other
+  - action: utter_other
+  - intent: search_category
+    entities:
+    - category: wedding
+  - slot_was_set:
+    - category: wedding
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: wedding
+  - slot_was_set:
+    - category: wedding
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '890000'
+  - slot_was_set:
+    - price: '890000'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '890000'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: other
+  - action: utter_other
+  - intent: city_search
+    entities:
+    - city: mumbai
+  - slot_was_set:
+    - city: mumbai
+  - action: action_check_api
+  - slot_was_set:
+    - city: mumbai
   - slot_was_set:
     - ext: null
   - active_loop: null

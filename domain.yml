@@ -90,7 +90,7 @@ slots:
     influence_conversation: false
 responses:
   utter_greet:
-  - text: Hey ! I am someone who will always be here to talk to you ;) , ask me anything , although it must in competence of our organization.
+  - text: Hey! I'm NameLess, the resident bot at Eventtow. I'm here to help you navigate the site!
   utter_cheer_up:
   - image: https://i.imgur.com/nGF1K8f.jpg
     text: 'Here is something to cheer you up:'
@@ -107,7 +107,7 @@ responses:
   utter_no_worries:
   - text: No problem :)
   utter_ask_continue:
-  - text: Sorry , I don't quite understand . Do you want to continue?
+  - text: Sorry, I don't quite understand. Would you please rephrase :)
   utter_email:
   - text: Would you please provide your email registerd with us?
   utter_welcome_premium:
@@ -126,12 +126,12 @@ responses:
       title: Delhi
     - payload: Kolkata
       title: Kolkata
-    - payload: Others
-      title: Others
+    - payload: Other
+      title: Other
     text: That's great, may I ask that in which "city" are you looking for a vendor?
   utter_ask_price:
   - text: So , how much are you planning to spend on this vendor's booking ? (Personal advise, price does not matter that much in an occassion.)
-  utter_ask_vend:
+  utter_ask_category:
   - buttons:
     - payload: Wedding
       title: Wedding
@@ -141,25 +141,29 @@ responses:
       title: Choreographer
     - payload: Photographer
       title: Photographer
-    - payload: Others
-      title: Others
-    text: Sure , please tell me for what occassion are you looking for a vendor? (It will help in finding the best vendor for your event)
+    - payload: Other
+      title: Other
+    text: Sure, please tell me for what occasion are you looking for a vendor? (It will help in finding the best vendor for your event)
   utter_greet_continue:
   - buttons:
     - payload: Let's get started
       title: Let's get started
-    text: I welcome you to our organization EVENTTOW.
+    text: |-
+      I am glad to see you here. We at Eventtow are committed to providing the best service to our customers all you have to do is just select the vendor -> select the date -> and book. 
+      It's that simple :) just like you purchase different products from online stores, but in our case when you book a vendor then you can lay it off to us to make your day special.
   utter_info:
   - text: Thank You for your feedback, follow our insta handle ->> , our customer service details, here we will add all the ways a person can contact our support team. We can also hand it off to a sales executive from here.
   utter_inform:
   - buttons:
-    - payload: Show me the best vendor
-      title: 'Show me the best vendor '
-    - payload: Top 5 vendors
-      title: Top 5 vendors
+    - payload: Show me different  vendors
+      title: Show me different vendors
+    - payload: Show me the best "Five" vendors
+      title: Show me the best "Five" vendors
     text: You are just one search away to find the best vendor for your occasion. Our organization has more than 1500+verified vendors across the country.
   utter_other:
   - text: Please input your search :)
+  utter_default:
+  - text: Sorry, but I am not qualified enough yet to understand what you wrote :(, Please rephrase ;*
 actions:
 - utter_info
 - utter_inform
@@ -167,9 +171,9 @@ actions:
 - action_check_api
 - action_check_email
 - utter_ask_city
+- utter_ask_category
 - utter_ask_continue
 - utter_ask_price
-- utter_ask_vend
 - utter_goodbye
 - utter_greet
 - utter_no_worries

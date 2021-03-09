@@ -1,7 +1,12 @@
 language: en
 pipeline:
-- name: WhitespaceTokenizer
+- name: SpacyNLP
+  model: en_core_web_md
+  case_sensitive: false
+- name: SpacyTokenizer
+  intent_tokenization_flag: true
   intent_split_symbol: +
+- name: SpacyFeaturizer
 - name: RegexFeaturizer
 - name: LexicalSyntacticFeaturizer
 - name: CountVectorsFeaturizer
