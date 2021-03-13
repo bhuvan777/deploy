@@ -25,12 +25,12 @@ rules:
   steps:
   - intent: out_of_scope
   - action: utter_ask_continue
-- rule: affden Rule
-  steps:
-  - or:
-    - intent: affirm
-    - intent: deny
-  - action: utter_info
+#- rule: affden Rule
+#  steps:
+#  - or:
+#    - intent: affirm
+#    - intent: deny
+#  - action: utter_info
 - rule: Vendor Rule
   steps:
   - intent: vendor_search

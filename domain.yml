@@ -1,92 +1,63 @@
 version: '2.0'
-config:
-  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- other:
-    use_entities: true
-- out_of_scope:
-    use_entities: true
-- vendor_search:
-    use_entities: true
-- deny:
-    use_entities: true
-- affirm:
-    use_entities: true
-- city_search:
-    use_entities: true
-- search_category:
-    use_entities: true
-- greet:
-    use_entities: true
-- thankyou:
-    use_entities: true
-- price_ext:
-    use_entities: true
-- everything:
-    use_entities: true
-- filter+search_category:
-    use_entities: true
-- email_info:
-    use_entities: true
-- inform:
-    use_entities: true
-- goodbye:
-    use_entities: true
-- mood_great:
-    use_entities: true
-- mood_unhappy:
-    use_entities: true
-- bot_challenge:
-    use_entities: true
+- email_info
+- search_category
+- affirm
+- city_search
+- stop
+- greet
+- price_ext
+- inform
+- vendor_search
+- other
+- out_of_scope
+- deny
+- thankyou
+- everything
+- filter+search_category
+- goodbye
+- mood_great
+- mood_unhappy
+- bot_challenge
 entities:
 - category
 - city
+- email
+- exercise
 - ext
 - filter
+- mobile
 - price
-- vend
-- exercise
-- email
-- stress
 - sleep
+- stress
+- vend
 slots:
   category:
-    type: rasa.shared.core.slots.UnfeaturizedSlot
-    initial_value: null
-    auto_fill: true
+    type: unfeaturized
     influence_conversation: false
   city:
-    type: rasa.shared.core.slots.UnfeaturizedSlot
-    initial_value: null
-    auto_fill: true
+    type: unfeaturized
     influence_conversation: false
   email:
-    type: rasa.shared.core.slots.UnfeaturizedSlot
-    initial_value: null
-    auto_fill: true
+    type: unfeaturized
+    influence_conversation: false
+  mobile:
+    type: unfeaturized
     influence_conversation: false
   ext:
-    type: rasa.shared.core.slots.UnfeaturizedSlot
-    initial_value: null
-    auto_fill: true
+    type: unfeaturized
     influence_conversation: false
   filter:
-    type: rasa.shared.core.slots.UnfeaturizedSlot
-    initial_value: null
-    auto_fill: true
+    type: unfeaturized
     influence_conversation: false
   price:
-    type: rasa.shared.core.slots.UnfeaturizedSlot
-    initial_value: null
-    auto_fill: true
+    type: unfeaturized
     influence_conversation: false
   requested_slot:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
 responses:
   utter_greet:
@@ -164,21 +135,34 @@ responses:
   - text: Please input your search :)
   utter_default:
   - text: Sorry, but I am not qualified enough yet to understand what you wrote :(, Please rephrase ;*
+  utter_contact:
+  - text: Please enter you email address or phone no. to take this conversation further with our sales executive.
+  utter_sales_contact:
+  - buttons:
+    - payload: Yes
+      title: Yes
+    - payload: Not now
+      title: Not now
+    text: Would you like our sales team to get in touch with you ?
+  utter_noprob:
+  - text: It's okay :(, but we are sure of gaining your trust towards our organization, in future :).
 actions:
-- utter_info
-- utter_inform
-- utter_greet_continue
 - action_check_api
-- action_check_email
-- utter_ask_city
+- action_check_detail
+- deactivate_loop
 - utter_ask_category
+- utter_ask_city
 - utter_ask_continue
 - utter_ask_price
+- utter_contact
 - utter_goodbye
 - utter_greet
+- utter_greet_continue
+- utter_info
+- utter_inform
 - utter_no_worries
+- utter_noprob
+- utter_sales_contact
 - utter_welcome_premium
-- deactivate_loop
 forms:
   action_check_api: {}
-e2e_actions: []

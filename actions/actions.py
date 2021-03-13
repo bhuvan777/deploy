@@ -53,19 +53,27 @@ from rasa_sdk.forms import FormAction
 
 class ActionCheck(Action):
    def name(self) -> Text:
-      return "action_check_email"
+      return "action_check_detail"
 
    def run(self,
            dispatcher: CollectingDispatcher,
            tracker: Tracker,
            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-       info = tracker.get_slot('email')
+       email_info = tracker.get_slot('email')
+       phone = tracker.get_slot('mobile')
+       event = tracker.get_slot('category')
+       place = tracker.get_slot('city')
 
-       res = DataValue(info)
-       if res != None:
-           dispatcher.utter_message(text="Your account is registered")
+       res = DataValue(email_info, phone, event, place)
+       print(res)
+       if res == 1 :
+           dispatcher.utter_message(text="Thank You :) , Our support team will get in touch with you soon.")
        else:
-           dispatcher.utter_message(text="This account is not registered with us.")
+           pass
+       # if res != None:
+       #     dispatcher.utter_message(text="Your account is registered")
+       # else:
+       #     dispatcher.utter_message(text="This account is not registered with us.")
        return []
 
 import requests
@@ -84,12 +92,30 @@ class ApiCheck(FormAction):
        else:
            return ["price","category","city"]
 
+
+   def validate_price(
+           self,
+           value: Text,
+           dispatcher: CollectingDispatcher,
+           tracker: Tracker,
+           domain: Dict[Text, Any],
+   ) -> Dict[Text, Any]:
+       try:
+           int(value)
+           return {"price":value}
+       except:
+           print("not ok")
+           dispatcher.utter_message("Please enter the price again , I'll try to understand it this time")
+           return {"price": None}
+
+
+
    def submit(self,
            dispatcher: CollectingDispatcher,
            tracker: Tracker,
            domain: Dict[Text, Any]) -> list:
        info = tracker.get_slot('category')
-       city = tracker.get_slot('city')
+       city = tracker.get_slot('city').lower()
        price = tracker.get_slot('price')
        filter = tracker.get_slot('filter')
        all = tracker.get_slot('ext')
@@ -105,7 +131,6 @@ class ApiCheck(FormAction):
        print(len(prod))
        print(prod[0]['price'])
        place =[]
-
        if all != None:
            print("ok")
        for i in range(len(prod)):
@@ -123,7 +148,11 @@ class ApiCheck(FormAction):
            res.append(resp)
 
        # final =[]
+       var = []
        buttons = []
+       buttons.append({"title":'Yes',"payload":'Yes'})
+       buttons.append({"title": 'No', "payload": 'No'})
+       print(buttons)
        if len(res) > 0:
            if ((filter != None) & (all == None)):
                if len(res) >= 5:
@@ -134,14 +163,15 @@ class ApiCheck(FormAction):
            else:
                message = "Here are all the search results for {} in {}".format(info, city)
            for i in range(len(res)):
-               buttons.append(res[i])
+               var.append(res[i])
 
            def listToString(s):
                string = " " + "\n"
                return (string.join(s))
 
 
-           dispatcher.utter_message(message +"\n"+ listToString(buttons))
+           dispatcher.utter_message(message +"\n"+ listToString(var))
+           dispatcher.utter_message(text="Were you satisfied with these results?",buttons=buttons)
        else:
            dispatcher.utter_message("Sorry, I was unable to find any {} category vendor in the city {}\nTry increasing your budget".format(info,city))
 

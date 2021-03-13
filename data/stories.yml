@@ -15,7 +15,11 @@ stories:
   - action: utter_other
   - active_loop: action_check_api
   - active_loop: null
-- story: search query with vend
+  - intent: deny
+  - action: utter_info
+  - action: utter_sales_contact
+  - checkpoint: check_asked_question
+- story: search query same as above
   steps:
   - intent: greet
   - action: utter_greet
@@ -25,19 +29,13 @@ stories:
   - intent: vendor_search
   - action: utter_ask_category
   - intent: search_category
-  - action: utter_ask_city
-  - intent: city_search
   - action: action_check_api
   - active_loop: action_check_api
   - active_loop: null
-- story: search query same as above
-  steps:
-  - intent: vendor_search
-  - action: utter_ask_category
-  - intent: search_category
-  - action: action_check_api
-  - active_loop: action_check_api
-  - active_loop: null
+  - intent: affirm
+  - action: utter_info
+  - action: utter_sales_contact
+  - checkpoint: check_asked_question
 - story: Story from Conversation ID 6c774babedb84b34aa14ee64f7563727
   steps:
   - intent: greet
@@ -710,3 +708,70 @@ stories:
     - requested_slot: null
   - intent: affirm
   - action: utter_info
+
+- story: handle user affirm contact
+  steps:
+  - checkpoint: check_asked_question
+  - intent: affirm
+  - action: utter_contact
+  - intent: email_info
+  - action: action_check_detail
+
+- story: handle user deny contact
+  steps:
+  - checkpoint: check_asked_question
+  - intent: deny
+  - action: utter_noprob
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+    entities:
+    - filter: best
+    - vend: vendors
+  - slot_was_set:
+    - filter: best
+  - action: utter_ask_category
+  - intent: search_category
+    entities:
+    - category: Wedding
+  - slot_was_set:
+    - category: Wedding
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: Wedding
+  - slot_was_set:
+    - category: Wedding
+  - slot_was_set:
+    - requested_slot: price
+  - slot_was_set:
+    - price: '789000'
+  - slot_was_set:
+    - price: '789000'
+  - slot_was_set:
+    - requested_slot: city
+  - slot_was_set:
+    - city: mumbai
+  - slot_was_set:
+    - city: mumbai
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: affirm
+  - action: utter_info
+  - action: utter_sales_contact
+  - intent: affirm
+  - action: utter_contact
+  - intent: email_info
+    entities:
+    - email: bhuvanpurohit777@yahoo.in
+  - slot_was_set:
+    - email: bhuvanpurohit777@yahoo.in
+  - action: action_check_detail
