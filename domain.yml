@@ -1,63 +1,97 @@
 version: '2.0'
+config:
+  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- email_info
-- search_category
-- affirm
-- city_search
-- stop
-- greet
-- price_ext
-- inform
-- vendor_search
-- other
-- out_of_scope
-- deny
-- thankyou
-- everything
-- filter+search_category
-- goodbye
-- mood_great
-- mood_unhappy
-- bot_challenge
+- email_info:
+    use_entities: true
+- search_category:
+    use_entities: true
+- affirm:
+    use_entities: true
+- city_search:
+    use_entities: true
+- stop:
+    use_entities: true
+- greet:
+    use_entities: true
+- price_ext:
+    use_entities: true
+- inform:
+    use_entities: true
+- vendor_search:
+    use_entities: true
+- other:
+    use_entities: true
+- out_of_scope:
+    use_entities: true
+- deny:
+    use_entities: true
+- thankyou:
+    use_entities: true
+- everything:
+    use_entities: true
+- filter+search_category:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
 entities:
 - category
 - city
 - email
-- exercise
 - ext
 - filter
 - mobile
 - price
-- sleep
-- stress
 - vend
 slots:
   category:
-    type: unfeaturized
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   city:
-    type: unfeaturized
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   email:
-    type: unfeaturized
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   mobile:
-    type: unfeaturized
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   ext:
-    type: unfeaturized
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   filter:
-    type: unfeaturized
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   price:
-    type: unfeaturized
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   requested_slot:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
 responses:
   utter_greet:
@@ -99,7 +133,7 @@ responses:
       title: Kolkata
     - payload: Other
       title: Other
-    text: That's great, may I ask that in which "city" are you looking for a vendor?
+    text: That's great, may I ask that in which "city" are you looking for a vendor? You can also enter your search:)
   utter_ask_price:
   - text: So , how much are you planning to spend on this vendor's booking ? (Personal advise, price does not matter that much in an occassion.)
   utter_ask_category:
@@ -114,7 +148,7 @@ responses:
       title: Photographer
     - payload: Other
       title: Other
-    text: Sure, please tell me for what occasion are you looking for a vendor? (It will help in finding the best vendor for your event)
+    text: Sure, please tell me for what occasion are you looking for a vendor? (It will help in finding the best vendor for your event) You could either choose from the options below or enter on your own.
   utter_greet_continue:
   - buttons:
     - payload: Let's get started
@@ -136,7 +170,7 @@ responses:
   utter_default:
   - text: Sorry, but I am not qualified enough yet to understand what you wrote :(, Please rephrase ;*
   utter_contact:
-  - text: Please enter you email address or phone no. to take this conversation further with our sales executive.
+  - text: Please enter your email address to take this conversation further with our sales executive.
   utter_sales_contact:
   - buttons:
     - payload: Yes
@@ -166,3 +200,4 @@ actions:
 - utter_welcome_premium
 forms:
   action_check_api: {}
+e2e_actions: []

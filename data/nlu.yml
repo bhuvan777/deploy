@@ -23,6 +23,7 @@ nlu:
     - hiii
     - NAMASTE
     - PRANAM
+    - hii
 - intent: goodbye
   examples: |
     - good afternoon
@@ -36,6 +37,7 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - no problem
 - intent: affirm
   examples: |
     - indeed
@@ -73,6 +75,8 @@ nlu:
     - no limit
     - no not at [all](ext)
     - No
+    - Not now
+    - not now
 - intent: mood_great
   examples: |
     - perfect
@@ -172,6 +176,7 @@ nlu:
     - iljvib iono
     - why shoud I do that??
     - iuvui bui
+    - fooling arund
 - intent: thankyou
   examples: |
     - okay great thanks
@@ -185,20 +190,19 @@ nlu:
     - my email is [thisisemail@gmail.com](email)
     - my mail is [my.email@gmail.com](email)
     - [bhuvan.purohit@gmail.com](email)
-    - no. is [9873465783](mobile)
-    - my mobile no. is [8928236778](mobile)
     - sure this is my email [hellopummelo@gmail.com](email)
-    - contact on [+14083456789](mobile)
-    - [07893748596](mobile)
-    - [+919876235647](mobile)
-    - [5467384972](mobile)
-    - [919083456389](mobile)
     - [som.poelo3456@yahoo.in](email)
     - [pokemonbest@outlook.com](email)
     - [contact@eventtow.com](email)
     - this is my mail [bhuvanp@mnnit.ac.in](email)
     - my mail is [hellopummelopoke@gmail.com](email)
     - [bhuvanpurohit777@yahoo.in](email)
+    - [founder@eventtow.com](email)
+    - [bhu@hotmail.co.in](email)
+    - [hello@gmail.com](email)
+    - [heyoks@notsocool.com](email)
+    - [prem@name.co.in](email)
+    - [cool@gmail.in](email)
 - intent: filter+search_category
   examples: |
     - search for the [best](filter) [photographers](category) in [delhi](city)
@@ -251,7 +255,6 @@ nlu:
     - [Wedding](category)
     - [Makeup](category) Artist
     - [Choreographer](category)
-    - [Wedding](category)
 - intent: city_search
   examples: |
     - in [mumbai](city)
@@ -268,7 +271,8 @@ nlu:
     - [Delhi](city)
     - [mumbai](city)
     - [delhi](city)
-    - [mumbai](city)
+    - [Kolkata](city)
+    - [Pune](city)
 - intent: price_ext
   examples: |
     - for the price of [10000](price)
@@ -299,6 +303,9 @@ nlu:
     - [670000](price)
     - [890000](price)
     - [789000](price)
+    - [67800](price)
+    - [890089](price)
+    - [98990](price)
 - intent: everything
   examples: |
     - show me [all](ext)
@@ -327,7 +334,6 @@ nlu:
     - Show me [all](ext) the [vendors](vend)
     - Show me different  [vendors](vend)
     - show me fifferent [vendors](vend)
-    - Show me the [best](filter) "Five" [vendors](vend)
     - Show me the [best](filter) "Five" [vendors](vend)
 - intent: other
   examples: |

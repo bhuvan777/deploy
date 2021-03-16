@@ -86,6 +86,17 @@ stories:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
+  - intent: deny
+  - action: utter_info
+  - action: utter_sales_contact
+  - intent: affirm
+  - action: utter_contact
+  - intent: email_info
+    entities:
+    - email: hello@gmail.in
+  - slot_was_set:
+    - email: hello@gmail.in
+  - action: action_check_detail
 - story: Story from Conversation ID 22a55f10261d4ff28490060c42f22b01
   steps:
   - intent: vendor_search
@@ -128,6 +139,9 @@ stories:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
+  - intent: affirm
+  - action: utter_info
+  - action: utter_sales_contact
 - story: Story from Conversation ID 8f17dd73cee44d25ba44dd027c66fa6e
   steps:
   - intent: greet
@@ -178,6 +192,17 @@ stories:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
+  - intent: deny
+  - action: utter_info
+  - action: utter_sales_contact
+  - intent: affirm
+  - action: utter_contact
+  - intent: email_info
+    entities:
+    - email: hello@ymail.com
+  - slot_was_set:
+    - email: hello@ymail.com
+  - action: action_check_detail
 - story: Story from Conversation ID 0f3db667703a401ab709a0e9fa01cea0
   steps:
   - intent: greet
@@ -232,6 +257,15 @@ stories:
     - requested_slot: null
   - intent: deny
   - action: utter_info
+  - action: utter_sales_contact
+  - intent: affirm
+  - action: utter_contact
+  - intent: email_info
+    entities:
+    - email: hello@gmail.in
+  - slot_was_set:
+    - email: hello@gmail.in
+  - action: action_check_detail
 - story: Story from Conversation ID 44c2921d97624e7db99a6b06274df8d7
   steps:
   - intent: greet
@@ -284,6 +318,7 @@ stories:
     - requested_slot: null
   - intent: affirm
   - action: utter_info
+  - action: utter_sales_contact
 - story: Story from Conversation ID 104e91b63ffe458f8ea2a0a130263abf
   steps:
   - intent: greet
@@ -336,6 +371,7 @@ stories:
     - requested_slot: null
   - intent: affirm
   - action: utter_info
+  - action: utter_sales_contact
 - story: Story from Conversation ID d20944d58c8747ce997412d65803e637
   steps:
   - intent: vendor_search
@@ -384,6 +420,7 @@ stories:
     - requested_slot: null
   - intent: deny
   - action: utter_info
+  - action: utter_sales_contact
 - story: category Story
   steps:
   - intent: inform
@@ -396,6 +433,13 @@ stories:
   - intent: other
   - action: utter_other
   - active_loop: null
+  - intent: deny
+  - action: utter_info
+  - action: utter_sales_contact
+  - intent: affirm
+  - action: utter_contact
+  - intent: email_info
+  - action: action_check_detail
 - story: Story from Conversation ID a04b9c93e5084a9dbeb8944341701229
   steps:
   - intent: greet
@@ -447,6 +491,7 @@ stories:
     - requested_slot: null
   - intent: affirm
   - action: utter_info
+  - action: utter_sales_contact
 - story: Story from Conversation ID c6c791f9863c4ee6a78c20e6e8a96c18
   steps:
   - intent: vendor_search
@@ -495,6 +540,15 @@ stories:
     - requested_slot: null
   - intent: affirm
   - action: utter_info
+  - action: utter_sales_contact
+  - intent: affirm
+  - action: utter_contact
+  - intent: email_info
+    entities:
+    - email: heruke.pop@gmail.com
+  - slot_was_set:
+    - email: heruke.pop@gmail.com
+  - action: action_check_detail
 - story: Story from Conversation ID f774339eb6df4aa2b31e3cedada116ab
   steps:
   - intent: greet
@@ -544,6 +598,7 @@ stories:
     - requested_slot: null
   - intent: affirm
   - action: utter_info
+  - action: utter_sales_contact
 - story: Story from Conversation ID 94dd0f91855b448eb7cf30c78abd3f7f
   steps:
   - intent: greet
@@ -652,63 +707,6 @@ stories:
     - requested_slot: null
   - intent: deny
   - action: utter_info
-- story: Story from Conversation ID 61faf8b2b39f47dbb11fc10632fb7f16
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - action: utter_greet_continue
-  - intent: inform
-  - action: utter_inform
-  - intent: vendor_search
-    entities:
-    - filter: best
-    - vend: vendors
-  - slot_was_set:
-    - filter: best
-  - action: utter_ask_category
-  - intent: other
-  - action: utter_other
-  - intent: search_category
-    entities:
-    - category: wedding
-  - slot_was_set:
-    - category: wedding
-  - action: action_check_api
-  - active_loop: action_check_api
-  - slot_was_set:
-    - category: wedding
-  - slot_was_set:
-    - category: wedding
-  - slot_was_set:
-    - requested_slot: price
-  - intent: price_ext
-    entities:
-    - price: '890000'
-  - slot_was_set:
-    - price: '890000'
-  - action: action_check_api
-  - slot_was_set:
-    - price: '890000'
-  - slot_was_set:
-    - requested_slot: city
-  - intent: other
-  - action: utter_other
-  - intent: city_search
-    entities:
-    - city: mumbai
-  - slot_was_set:
-    - city: mumbai
-  - action: action_check_api
-  - slot_was_set:
-    - city: mumbai
-  - slot_was_set:
-    - ext: null
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - intent: affirm
-  - action: utter_info
-
 - story: handle user affirm contact
   steps:
   - checkpoint: check_asked_question
@@ -716,7 +714,6 @@ stories:
   - action: utter_contact
   - intent: email_info
   - action: action_check_detail
-
 - story: handle user deny contact
   steps:
   - checkpoint: check_asked_question
@@ -774,4 +771,298 @@ stories:
     - email: bhuvanpurohit777@yahoo.in
   - slot_was_set:
     - email: bhuvanpurohit777@yahoo.in
+  - action: action_check_detail
+- story: Story from Conversation ID a5e32d26dc744088a69dda3bf1df0759
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+    entities:
+    - filter: best
+    - vend: vendors
+  - slot_was_set:
+    - filter: best
+  - action: utter_ask_category
+  - intent: search_category
+    entities:
+    - category: Makeup
+  - slot_was_set:
+    - category: Makeup
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: Makeup
+  - slot_was_set:
+    - category: Makeup
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '67800'
+  - slot_was_set:
+    - price: '67800'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '67800'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: city_search
+    entities:
+    - city: Mumbai
+  - slot_was_set:
+    - city: Mumbai
+  - action: action_check_api
+  - slot_was_set:
+    - city: Mumbai
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: affirm
+  - action: utter_info
+  - action: utter_sales_contact
+  - intent: affirm
+  - action: utter_contact
+  - intent: email_info
+    entities:
+    - email: bhu@hotmail.co.in
+  - slot_was_set:
+    - email: bhu@hotmail.co.in
+  - action: action_check_detail
+- story: Story from Conversation ID d660ce9e6d2648eead09847f9cd97301
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+    entities:
+    - vend: vendors
+  - action: utter_ask_category
+  - intent: search_category
+    entities:
+    - category: Wedding
+  - slot_was_set:
+    - category: Wedding
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: Wedding
+  - slot_was_set:
+    - category: Wedding
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '890000'
+  - slot_was_set:
+    - price: '890000'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '890000'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: city_search
+    entities:
+    - city: Kolkata
+  - slot_was_set:
+    - city: Kolkata
+  - action: action_check_api
+  - slot_was_set:
+    - city: Kolkata
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: deny
+  - action: utter_info
+  - action: utter_sales_contact
+  - intent: affirm
+  - action: utter_contact
+  - intent: email_info
+    entities:
+    - email: hello@gmail.com
+  - slot_was_set:
+    - email: hello@gmail.com
+  - action: action_check_detail
+- story: Story from Conversation ID 1f6ed2a423e640939ab7bcb2c4d072d9
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+    entities:
+    - filter: best
+    - vend: vendors
+  - slot_was_set:
+    - filter: best
+  - action: utter_ask_category
+  - intent: search_category
+    entities:
+    - category: Makeup
+  - slot_was_set:
+    - category: Makeup
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: Makeup
+  - slot_was_set:
+    - category: Makeup
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '890089'
+  - slot_was_set:
+    - price: '890089'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '890089'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: city_search
+    entities:
+    - city: Pune
+  - slot_was_set:
+    - city: Pune
+  - action: action_check_api
+  - slot_was_set:
+    - city: Pune
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: goodbye
+  - action: utter_goodbye
+  - action: utter_sales_contact
+  - intent: affirm
+  - action: utter_contact
+  - intent: out_of_scope
+  - action: utter_ask_continue
+  - intent: email_info
+  - action: action_check_detail
+- story: Story from Conversation ID a05076050496455f9626e8c51d865553
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+    entities:
+    - filter: best
+    - vend: vendors
+  - slot_was_set:
+    - filter: best
+  - action: utter_ask_category
+  - intent: search_category
+    entities:
+    - category: Wedding
+  - slot_was_set:
+    - category: Wedding
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: Wedding
+  - slot_was_set:
+    - category: Wedding
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '78000'
+  - slot_was_set:
+    - price: '78000'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '78000'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: city_search
+    entities:
+    - city: Mumbai
+  - slot_was_set:
+    - city: Mumbai
+  - action: action_check_api
+  - slot_was_set:
+    - city: Mumbai
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: deny
+  - action: utter_info
+  - action: utter_sales_contact
+  - intent: deny
+  - action: utter_noprob
+- story: Story from Conversation ID db3d7fa103554c2f92f6518c026e38bf
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_greet_continue
+  - intent: inform
+  - action: utter_inform
+  - intent: vendor_search
+    entities:
+    - filter: best
+    - vend: vendors
+  - slot_was_set:
+    - filter: best
+  - action: utter_ask_category
+  - intent: search_category
+    entities:
+    - category: Choreographer
+  - slot_was_set:
+    - category: Choreographer
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - category: Choreographer
+  - slot_was_set:
+    - category: Choreographer
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: '98990'
+  - slot_was_set:
+    - price: '98990'
+  - action: action_check_api
+  - slot_was_set:
+    - price: '98990'
+  - slot_was_set:
+    - requested_slot: city
+  - intent: city_search
+    entities:
+    - city: Mumbai
+  - slot_was_set:
+    - city: Mumbai
+  - action: action_check_api
+  - slot_was_set:
+    - city: Mumbai
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: deny
+  - action: utter_info
+  - action: utter_sales_contact
+  - intent: affirm
+  - action: utter_contact
+  - intent: email_info
+    entities:
+    - email: cool@gmail.in
+  - slot_was_set:
+    - email: cool@gmail.in
   - action: action_check_detail
