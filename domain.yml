@@ -43,6 +43,10 @@ intents:
     use_entities: true
 - bot_challenge:
     use_entities: true
+- ado:
+    use_entities: true
+- adont:
+    use_entities: true
 entities:
 - category
 - city
@@ -52,6 +56,7 @@ entities:
 - mobile
 - price
 - vend
+- exercise
 slots:
   category:
     type: rasa.shared.core.slots.UnfeaturizedSlot
@@ -173,10 +178,10 @@ responses:
   - text: Please enter your email address to take this conversation further with our sales executive.
   utter_sales_contact:
   - buttons:
-    - payload: Yes
-      title: Yes
-    - payload: Not now
-      title: Not now
+    - payload: 'Yes, I want to '
+      title: 'Yes, I want to '
+    - payload: No, not at the moment
+      title: No, not at the moment
     text: Would you like our sales team to get in touch with you ?
   utter_noprob:
   - text: It's okay :(, but we are sure of gaining your trust towards our organization, in future :).

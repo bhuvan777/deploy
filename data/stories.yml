@@ -36,7 +36,7 @@ stories:
   - action: utter_info
   - action: utter_sales_contact
   - checkpoint: check_asked_question
-- story: Story from Conversation ID 6c774babedb84b34aa14ee64f7563727
+- story: Story1
   steps:
   - intent: greet
   - action: utter_greet
@@ -89,7 +89,7 @@ stories:
   - intent: deny
   - action: utter_info
   - action: utter_sales_contact
-  - intent: affirm
+  - intent: ado
   - action: utter_contact
   - intent: email_info
     entities:
@@ -97,7 +97,7 @@ stories:
   - slot_was_set:
     - email: hello@gmail.in
   - action: action_check_detail
-- story: Story from Conversation ID 22a55f10261d4ff28490060c42f22b01
+- story: Story 2
   steps:
   - intent: vendor_search
     entities:
@@ -142,7 +142,15 @@ stories:
   - intent: affirm
   - action: utter_info
   - action: utter_sales_contact
-- story: Story from Conversation ID 8f17dd73cee44d25ba44dd027c66fa6e
+  - intent: ado
+  - action: utter_contact
+  - intent: email_info
+    entities:
+    - email: hel@gmail.in
+  - slot_was_set:
+    - email: hel@gmail.in
+  - action: action_check_detail
+- story: Story 3
   steps:
   - intent: greet
   - action: utter_greet
@@ -195,7 +203,7 @@ stories:
   - intent: deny
   - action: utter_info
   - action: utter_sales_contact
-  - intent: affirm
+  - intent: ado
   - action: utter_contact
   - intent: email_info
     entities:
@@ -203,7 +211,7 @@ stories:
   - slot_was_set:
     - email: hello@ymail.com
   - action: action_check_detail
-- story: Story from Conversation ID 0f3db667703a401ab709a0e9fa01cea0
+- story: Story 4
   steps:
   - intent: greet
   - action: utter_greet
@@ -258,7 +266,7 @@ stories:
   - intent: deny
   - action: utter_info
   - action: utter_sales_contact
-  - intent: affirm
+  - intent: ado
   - action: utter_contact
   - intent: email_info
     entities:
@@ -266,7 +274,7 @@ stories:
   - slot_was_set:
     - email: hello@gmail.in
   - action: action_check_detail
-- story: Story from Conversation ID 44c2921d97624e7db99a6b06274df8d7
+- story: Story 5
   steps:
   - intent: greet
   - action: utter_greet
@@ -319,7 +327,15 @@ stories:
   - intent: affirm
   - action: utter_info
   - action: utter_sales_contact
-- story: Story from Conversation ID 104e91b63ffe458f8ea2a0a130263abf
+  - intent: ado
+  - action: utter_contact
+  - intent: email_info
+    entities:
+    - email: h@gmail.in
+  - slot_was_set:
+    - email: h@gmail.in
+  - action: action_check_detail
+- story: Story 6
   steps:
   - intent: greet
   - action: utter_greet
@@ -369,10 +385,18 @@ stories:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - intent: affirm
+  - intent: deny
   - action: utter_info
   - action: utter_sales_contact
-- story: Story from Conversation ID d20944d58c8747ce997412d65803e637
+  - intent: ado
+  - action: utter_contact
+  - intent: email_info
+    entities:
+    - email: hello@gmal.in
+  - slot_was_set:
+    - email: hello@gmal.in
+  - action: action_check_detail
+- story: Story 7
   steps:
   - intent: vendor_search
     entities:
@@ -421,6 +445,8 @@ stories:
   - intent: deny
   - action: utter_info
   - action: utter_sales_contact
+  - intent: adont
+  - action: utter_noprob
 - story: category Story
   steps:
   - intent: inform
@@ -436,11 +462,11 @@ stories:
   - intent: deny
   - action: utter_info
   - action: utter_sales_contact
-  - intent: affirm
+  - intent: ado
   - action: utter_contact
   - intent: email_info
   - action: action_check_detail
-- story: Story from Conversation ID a04b9c93e5084a9dbeb8944341701229
+- story: Story 8
   steps:
   - intent: greet
   - action: utter_greet
@@ -492,7 +518,9 @@ stories:
   - intent: affirm
   - action: utter_info
   - action: utter_sales_contact
-- story: Story from Conversation ID c6c791f9863c4ee6a78c20e6e8a96c18
+  - intent: adont
+  - action: utter_noprob
+- story: Story 9
   steps:
   - intent: vendor_search
     entities:
@@ -541,7 +569,7 @@ stories:
   - intent: affirm
   - action: utter_info
   - action: utter_sales_contact
-  - intent: affirm
+  - intent: ado
   - action: utter_contact
   - intent: email_info
     entities:
@@ -549,7 +577,7 @@ stories:
   - slot_was_set:
     - email: heruke.pop@gmail.com
   - action: action_check_detail
-- story: Story from Conversation ID f774339eb6df4aa2b31e3cedada116ab
+- story: Story 11
   steps:
   - intent: greet
   - action: utter_greet
@@ -599,7 +627,9 @@ stories:
   - intent: affirm
   - action: utter_info
   - action: utter_sales_contact
-- story: Story from Conversation ID 94dd0f91855b448eb7cf30c78abd3f7f
+  - intent: adont
+  - action: utter_noprob
+- story: Story 12
   steps:
   - intent: greet
   - action: utter_greet
@@ -653,7 +683,10 @@ stories:
     - requested_slot: null
   - intent: affirm
   - action: utter_info
-- story: Story from Conversation ID 65ac192e3f594499937246c9884b7102
+  - action: utter_sales_contact
+  - intent: adont
+  - action: utter_noprob
+- story: Story 13
   steps:
   - intent: greet
   - action: utter_greet
@@ -707,17 +740,20 @@ stories:
     - requested_slot: null
   - intent: deny
   - action: utter_info
+  - action: utter_sales_contact
+  - intent: adont
+  - action: utter_noprob
 - story: handle user affirm contact
   steps:
   - checkpoint: check_asked_question
-  - intent: affirm
+  - intent: ado
   - action: utter_contact
   - intent: email_info
   - action: action_check_detail
 - story: handle user deny contact
   steps:
   - checkpoint: check_asked_question
-  - intent: deny
+  - intent: adont
   - action: utter_noprob
 - story: interactive_story_1
   steps:
@@ -764,7 +800,7 @@ stories:
   - intent: affirm
   - action: utter_info
   - action: utter_sales_contact
-  - intent: affirm
+  - intent: ado
   - action: utter_contact
   - intent: email_info
     entities:
@@ -772,7 +808,7 @@ stories:
   - slot_was_set:
     - email: bhuvanpurohit777@yahoo.in
   - action: action_check_detail
-- story: Story from Conversation ID a5e32d26dc744088a69dda3bf1df0759
+- story: Story 14
   steps:
   - intent: greet
   - action: utter_greet
@@ -825,7 +861,7 @@ stories:
   - intent: affirm
   - action: utter_info
   - action: utter_sales_contact
-  - intent: affirm
+  - intent: ado
   - action: utter_contact
   - intent: email_info
     entities:
@@ -833,7 +869,7 @@ stories:
   - slot_was_set:
     - email: bhu@hotmail.co.in
   - action: action_check_detail
-- story: Story from Conversation ID d660ce9e6d2648eead09847f9cd97301
+- story: Story 15
   steps:
   - intent: greet
   - action: utter_greet
@@ -883,7 +919,7 @@ stories:
   - intent: deny
   - action: utter_info
   - action: utter_sales_contact
-  - intent: affirm
+  - intent: ado
   - action: utter_contact
   - intent: email_info
     entities:

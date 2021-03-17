@@ -340,3 +340,11 @@ nlu:
     - Other
     - Others
     - others
+- intent: ado
+  examples: |
+    - Yes, I want to
+    - Yes, I would like to
+- intent: adont
+  examples: |
+    - No, not at the moment
+    - No, not right now

@@ -34,3 +34,18 @@ rules:
   steps:
   - intent: email_info
   - action: action_check_detail
+- rule: affden Rule
+  steps:
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: utter_info
+  - action: utter_sales_contact
+- rule: ado Rule
+  steps:
+  - intent: ado
+  - action: utter_contact
+- rule: adont Rule
+  steps:
+  - intent: adont
+  - action: utter_noprob
