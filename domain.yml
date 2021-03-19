@@ -136,8 +136,6 @@ responses:
       title: Delhi
     - payload: Kolkata
       title: Kolkata
-    - payload: Other
-      title: Other
     text: That's great, may I ask that in which "city" are you looking for a vendor? You can also enter your search:)
   utter_ask_price:
   - text: So , how much are you planning to spend on this vendor's booking ? (Personal advise, price does not matter that much in an occassion.)
@@ -151,8 +149,6 @@ responses:
       title: Choreographer
     - payload: Photographer
       title: Photographer
-    - payload: Other
-      title: Other
     text: Sure, please tell me for what occasion are you looking for a vendor? (It will help in finding the best vendor for your event) You could either choose from the options below or enter on your own.
   utter_greet_continue:
   - buttons:

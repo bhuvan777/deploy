@@ -203,6 +203,7 @@ nlu:
     - [heyoks@notsocool.com](email)
     - [prem@name.co.in](email)
     - [cool@gmail.in](email)
+    - [okay@gmail.com](email)
 - intent: filter+search_category
   examples: |
     - search for the [best](filter) [photographers](category) in [delhi](city)
