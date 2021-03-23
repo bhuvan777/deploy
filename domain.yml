@@ -138,7 +138,16 @@ responses:
       title: Kolkata
     text: That's great, may I ask that in which "city" are you looking for a vendor? You can also enter your search:)
   utter_ask_price:
-  - text: So , how much are you planning to spend on this vendor's booking ? (Personal advise, price does not matter that much in an occassion.)
+  - buttons:
+    - payload: '10000'
+      title: '10000'
+    - payload: '25000'
+      title: '25000'
+    - payload: '50000'
+      title: '50000'
+    - payload: '100000'
+      title: '100000'
+    text: So, how much are you planning to spend on this vendor's booking? (Personal advice, price does not matter that much on an occasion.)You can also input the price according to your budget.
   utter_ask_category:
   - buttons:
     - payload: Wedding
