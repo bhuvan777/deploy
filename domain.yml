@@ -47,6 +47,8 @@ intents:
     use_entities: true
 - adont:
     use_entities: true
+- price_anew:
+    use_entities: true
 entities:
 - category
 - city
@@ -178,7 +180,7 @@ responses:
   utter_other:
   - text: Please input your search :)
   utter_default:
-  - text: Sorry, but I am not qualified enough yet to understand what you wrote :(, Please rephrase ;*
+  - text: Sorry, but I am not qualified enough to understand what you wrote :(, Please rephrase ;*
   utter_contact:
   - text: Please enter your email address to take this conversation further with our sales executive.
   utter_sales_contact:
