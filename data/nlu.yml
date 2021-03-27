@@ -45,7 +45,6 @@ nlu:
     - that sounds good
     - correct
     - sure
-    - okay
     - why not
     - great
     - cool
@@ -349,3 +348,7 @@ nlu:
   examples: |
     - No, not at the moment
     - No, not right now
+- intent: price_anew
+  examples: |
+    - Enter Price again
+    - I will add the price again

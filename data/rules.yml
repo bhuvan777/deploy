@@ -53,3 +53,7 @@ rules:
   steps:
   - intent: search_category
   - action: action_check_api
+- rule: Price_anew Rule
+  steps:
+  - intent: price_anew
+  - action: utter_ask_price
