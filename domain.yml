@@ -208,12 +208,12 @@ responses:
   - custom:
       blocks:
       - type: section
-        text:
-          text: "Select the date of your occassion"
+        text: 
+          text: 'Can you tell me the start date?'
           type: mrkdwn
         accessory:
           type: datepicker
-          initial_date: '2021-04-3'
+          initial_date: '2019-05-21'
           placeholder:
             type: plain_text
             text: Select a date
