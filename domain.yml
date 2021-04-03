@@ -119,7 +119,14 @@ responses:
   utter_no_worries:
   - text: No problem :)
   utter_ask_continue:
-  - text: Sorry, I don't quite understand. Would you please rephrase :)
+  - buttons:
+    - payload: /restart
+      title: Restart session
+    - payload: Talk to sales executive instead
+      title: Talk to sales executive instead
+    - payload: No, I want to quit
+      title: No, I want to quit
+    text: Sorry, I don't quite understand. Would you please enter your query again or choose one of the below-given options :)
   utter_email:
   - text: Would you please provide your email registerd with us?
   utter_welcome_premium:
@@ -180,9 +187,14 @@ responses:
   utter_other:
   - text: Please input your search :)
   utter_default:
-  - text: Sorry, but I am not qualified enough to understand what you wrote :(, Please rephrase ;*
+  - buttons:
+    - payload: Talk to sales executive instead
+      title: Talk to sales executive instead
+    - payload: 'No, I do not want to '
+      title: 'No, I do not want to '
+    text: Sorry, but I am not qualified enough to understand what you wrote :(, Please enter again or select one of the given options.
   utter_contact:
-  - text: Please enter your email address to take this conversation further with our sales executive.
+  - text: Please enter your email address our sales personnel will get in touch with you soon. Trust us, we will never spam.
   utter_sales_contact:
   - buttons:
     - payload: 'Yes, I want to '

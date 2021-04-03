@@ -344,10 +344,13 @@ nlu:
   examples: |
     - Yes, I want to
     - Yes, I would like to
+    - Talk to sales executive instead
 - intent: adont
   examples: |
     - No, not at the moment
     - No, not right now
+    - No , I do not want to
+    - No, I want to quit
 - intent: price_anew
   examples: |
     - Enter Price again
