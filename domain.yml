@@ -204,6 +204,19 @@ responses:
     text: Would you like our sales team to get in touch with you ?
   utter_noprob:
   - text: It's okay :(, but we are sure of gaining your trust towards our organization, in future :).
+  utter_ask_date:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          text: "Select the date of your occassion"
+          type: mrkdwn
+        accessory:
+          type: datepicker
+          initial_date: '2021-04-3'
+          placeholder:
+            type: plain_text
+            text: Select a date
 actions:
 - action_check_api
 - action_check_detail
