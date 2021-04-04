@@ -49,7 +49,13 @@ intents:
     use_entities: true
 - price_anew:
     use_entities: true
+- name_info:
+    use_entities: true
+- date_info:
+    use_entities: true
 entities:
+- date
+- name
 - category
 - city
 - email
@@ -80,6 +86,12 @@ slots:
     initial_value: null
     auto_fill: true
     influence_conversation: false
+  date:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+
   ext:
     type: rasa.shared.core.slots.UnfeaturizedSlot
     initial_value: null
@@ -91,6 +103,11 @@ slots:
     auto_fill: true
     influence_conversation: false
   price:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  name:
     type: rasa.shared.core.slots.UnfeaturizedSlot
     initial_value: null
     auto_fill: true
@@ -176,14 +193,15 @@ responses:
       I am glad to see you here. We at Eventtow are committed to providing the best service to our customers all you have to do is just select the vendor -> select the date -> and book. 
       It's that simple :) just like you purchase different products from online stores, but in our case when you book a vendor then you can lay it off to us to make your day special.
   utter_info:
-  - text: Thank You for your feedback, follow our insta handle ->> , our customer service details, here we will add all the ways a person can contact our support team. We can also hand it off to a sales executive from here.
+  - text: Happy to hear that , follow our insta handle ->> , our customer service details, here we will add all the ways a person can contact our support team. We can also hand it off to a sales executive from here.
   utter_inform:
-  - buttons:
-    - payload: Show me different  vendors
-      title: Show me different vendors
-    - payload: Show me the best "Five" vendors
-      title: Show me the best "Five" vendors
-    text: You are just one search away to find the best vendor for your occasion. Our organization has more than 1500+verified vendors across the country.
+  - text: To start with please tell me your name :)
+#  - buttons:
+#    - payload: Show me different  vendors
+#      title: Show me different vendors
+#    - payload: Show me the best "Five" vendors
+#      title: Show me the best "Five" vendors
+#    text: You are just one search away to find the best vendor for your occasion. Our organization has more than 1500+verified vendors across the country.
   utter_other:
   - text: Please input your search :)
   utter_default:
@@ -194,7 +212,7 @@ responses:
       title: 'No, I do not want to '
     text: Sorry, but I am not qualified enough to understand what you wrote :(, Please enter again or select one of the given options.
   utter_contact:
-  - text: Please enter your email address our sales personnel will get in touch with you soon. Trust us, we will never spam.
+  - text: Good to see you {name}, please enter your email address. Trust us, we will never spam.
   utter_sales_contact:
   - buttons:
     - payload: 'Yes, I want to '
@@ -203,8 +221,12 @@ responses:
       title: No, not at the moment
     text: Would you like our sales team to get in touch with you ?
   utter_noprob:
-  - text: It's okay :(, but we are sure of gaining your trust towards our organization, in future :).
+  - text: Okay :( , if you need us our event experts are available at Sales Phone Number.
+
   utter_ask_date:
+  - text: Awesome, do you have a date in mind? (enter in dd/mm/yy format)
+
+  utter_ask_datepicker:
   - custom:
       blocks:
       - type: section

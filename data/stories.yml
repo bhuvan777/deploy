@@ -7,7 +7,11 @@ stories:
   - action: utter_greet_continue
   - intent: inform
   - action: utter_inform
-  - intent: vendor_search
+  - intent: name_info
+  - action: utter_contact
+  - intent: email_info
+  - action: utter_ask_date
+  - intent: date_info
   - action: utter_ask_category
   - intent: search_category
   - action: action_check_api

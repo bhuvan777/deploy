@@ -355,3 +355,25 @@ nlu:
   examples: |
     - Enter Price again
     - I will add the price again
+
+- intent: name_info
+  examples: |
+    - My name is [Bhuvan Purohit](name)
+    - it's [Arpit Shukla](name)
+    - [Hina Dixit](name)
+    - [Abhinav](name)
+    - [suraj](name)
+    - the name is [gudden](name)
+    - name is [shanu](name)
+    - it [runjhun](name)
+    - sure , its [priyanka](name)
+    - yes, its [prakash](name)
+
+- intent: date_info
+  examples: |
+    - [04/09/21](date)
+    - [30/09/21](date)
+    - [21/12/21](date)
+    - [02/04/21](date)
+    - [06/06/21](date)
+

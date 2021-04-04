@@ -36,11 +36,18 @@ rules:
   - action: action_check_detail
 - rule: affden Rule
   steps:
-  - or:
-    - intent: affirm
-    - intent: deny
+#  - or:
+  - intent: affirm
+#    - intent: deny
   - action: utter_info
   - action: utter_sales_contact
+
+- rule: deny rule
+  steps:
+  - intent: deny
+  - action: utter_noprob
+
+
 - rule: ado Rule
   steps:
   - intent: ado
