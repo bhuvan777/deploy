@@ -370,6 +370,28 @@ nlu:
     - it [runjhun](name)
     - sure , its [priyanka](name)
     - yes, its [prakash](name)
+    - [shahrukh](name)
+    - [salman](name) khan
+    - [alia](name) bhatt
+    - [kartik](name)
+    - [aryan](name)
+    - [ankit](name)
+    - [mansi](name) trivedi
+    - [anjali](name) mehta
+    - [sanjay](name) bansali
+    - [abhishek](name)
+    - [amitabh](name) bacchan
+    - [rekha](name)
+    - [madhuri](name) dixit
+    - [aamir](name) khan
+    - [Manoj](name) agarwal
+    - [Prerna](name) pandit
+    - [abhimanyu](name) singh
+    - [ansh](name) vijh
+    - [aryamann](name) sinha
+    - [surendra](name) pratap
+    - [rinku](name)
+    - [ayush](name)
 - intent: date_info
   examples: |
     - [04/09/21](date)
@@ -377,3 +399,33 @@ nlu:
     - [21/12/21](date)
     - [02/04/21](date)
     - [06/06/21](date)
+    - [21/12/22](date)
+    - [12/4/21](date)
+    - date is [30/8/20](date)
+    - [9/1/21](date)
+    - [2/2/22](date)
+    - [1/2/23](date)
+    - [4/11/22](date)
+- intent: date_format
+  examples: |
+    - on 24th september 2021
+    - on this weekend
+    - this sunday
+    - 20th august 2021
+    - flexible date
+    - when vendor is available
+    - on 1st october this year
+    - 2nd november of coming year
+    - next year mostly
+    - next month
+    - next week
+    - this month
+    - this year
+    - 30th january 2020
+    - 13 june 21
+    - in sometime
+    - 14th may 2021
+    - this july
+    - in december
+    - 5th april this year
+    - 3rd february next year

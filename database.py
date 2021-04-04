@@ -1,5 +1,5 @@
 import mysql.connector
-def DataValue(email , contact, event, place):
+def DataValue(name, email, date_info, event_info, place_info, price_info, allow):
     mydb = mysql.connector.connect(
         host="eventtow-restore.cfex2mlqblie.ap-south-1.rds.amazonaws.com",
         user="root",
@@ -10,8 +10,8 @@ def DataValue(email , contact, event, place):
     # mycursor.execute("SELECT * FROM user where email=%s", [email])
     # result = mycursor.fetchone()
     # return result
-    sql = "INSERT INTO website_customer_contact_info (email, mobile, event_info, place_info) VALUES (%s,%s,%s,%s)"
-    val = (email, contact, event, place)
+    sql = "INSERT INTO web_customer ( name_info,email,date_info, event_info, place_info, price_info,allow) VALUES (%s,%s,%s,%s,%s,%s,%s)"
+    val = (name, email, date_info, event_info, place_info, price_info, allow)
     print(val)
     mycursor.execute(sql, val)
     mydb.commit()

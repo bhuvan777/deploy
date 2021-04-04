@@ -5,6 +5,8 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- date_format:
+    use_entities: true
 - get_started:
     use_entities: true
 - email_info:
@@ -56,6 +58,7 @@ intents:
 - date_info:
     use_entities: true
 entities:
+- sure
 - date
 - name
 - category
@@ -84,6 +87,11 @@ slots:
     auto_fill: true
     influence_conversation: false
   mobile:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  sure:
     type: rasa.shared.core.slots.UnfeaturizedSlot
     initial_value: null
     auto_fill: true
@@ -198,7 +206,7 @@ responses:
       It's that simple :) just like you purchase different products from online stores, but in our case when you book a vendor then you can lay it off to us to make your day special.
   utter_info:
   - text: Happy to hear that , follow our insta handle ->> , our customer service details, here we will add all the ways a person can contact our support team. We can also hand it off to a sales executive from here.
-  utter_inform:
+  utter_ask_name:
   - text: To start with please tell me your name :)
   utter_other:
   - text: Please input your search :)
@@ -209,9 +217,9 @@ responses:
     - payload: 'No, I do not want to '
       title: 'No, I do not want to '
     text: Sorry, but I am not qualified enough to understand what you wrote :(, Please enter again or select one of the given options.
-  utter_contact:
+  utter_ask_email:
   - text: Good to see you {name}, please enter your email address. Trust us, we will never spam.
-  utter_sales_contact:
+  utter_ask_sure:
   - buttons:
     - payload: 'Yes, I want to '
       title: 'Yes, I want to '

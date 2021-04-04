@@ -55,21 +55,27 @@ class ActionCheck(Action):
    def name(self) -> Text:
       return "action_check_detail"
 
+   # @staticmethod
+   # def required_slots(tracker):
+   #     return "sure"
    def run(self,
            dispatcher: CollectingDispatcher,
            tracker: Tracker,
            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
        email_info = tracker.get_slot('email')
-       phone = tracker.get_slot('mobile')
        event = tracker.get_slot('category')
        place = tracker.get_slot('city')
-
-       res = DataValue(email_info, phone, event, place)
+       name = tracker.get_slot('name')
+       date = tracker.get_slot('date')
+       price = tracker.get_slot('price')
+       allow = tracker.get_slot('sure')
+       print(allow)
+       res = DataValue(name, email_info, date, event, place, price, allow)
        print(res)
-       if res == 1 :
-           dispatcher.utter_message(text="Thank You :) , Our support team will get in touch with you soon.")
-       else:
-           pass
+       # if res == 1 :
+       #     dispatcher.utter_message(text="Thank You :) , Our support team will get in touch with you soon.")
+       # else:
+       #     pass
        # if res != None:
        #     dispatcher.utter_message(text="Your account is registered")
        # else:
@@ -85,12 +91,12 @@ class ApiCheck(FormAction):
    @staticmethod
    def required_slots(tracker):
        if tracker.get_slot("filter") == "True":
-           return ["filter","price","category","city"]
+           return ["filter","name","email","date","category","city","price"]
        if tracker.get_slot("ext") == True:
            # print("ok")
-           return ["filter","price","category","city","ext"]
+           return ["filter""name","email","date","category","city","price","ext"]
        else:
-           return ["price","category","city"]
+           return ["name","email","date","category","city","price"]
 
 
    def validate_price(
@@ -130,6 +136,9 @@ class ApiCheck(FormAction):
        med=[]
        print(len(prod))
        print(prod[0]['price'])
+       print(tracker.get_slot('email'))
+       print(tracker.get_slot('date'))
+       print(tracker.get_slot('name'))
        place =[]
        if all != None:
            print("ok")
@@ -180,6 +189,21 @@ class ApiCheck(FormAction):
 
    def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict[Text, Any]]]]:
        return {
+           "sure":[
+               self.from_intent(intent="ado", value=True),
+               self.from_intent(intent="adont", value=False)
+           ],
+           "name":[
+               self.from_entity(entity="name", intent=["name_info"]),
+               self.from_intent(intent=["out_of_scope","deny","nlu_fallback"], value="customer")
+           ],
+           "date":[
+               self.from_entity(entity="date", intent=["date_info"]),
+               self.from_text(intent="date_format")
+           ],
+           "email":[
+               self.from_entity(entity="email", intent=["email_info"])
+           ],
            "price": [
                self.from_entity(entity="price", intent=["price_ext"]),
                self.from_intent(intent=["deny","inform","thankyou"], value="0"),

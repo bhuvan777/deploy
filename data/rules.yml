@@ -17,7 +17,7 @@ rules:
 - rule: inform Rule
   steps:
   - intent: inform
-  - action: utter_inform
+  - action: action_check_api
 - rule: out rule
   steps:
   - intent: out_of_scope
@@ -35,7 +35,7 @@ rules:
   steps:
   - intent: affirm
   - action: utter_info
-  - action: utter_sales_contact
+  - action: utter_ask_sure
 - rule: deny rule
   steps:
   - intent: deny
@@ -43,10 +43,12 @@ rules:
 - rule: ado Rule
   steps:
   - intent: ado
+  - action: action_check_detail
   - action: utter_confirm
 - rule: adont Rule
   steps:
   - intent: adont
+  - action: action_check_detail
   - action: utter_no_worries
 - rule: search Rule
   steps:
