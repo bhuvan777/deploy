@@ -18,10 +18,6 @@ rules:
   steps:
   - intent: inform
   - action: utter_inform
-- rule: other Rule
-  steps:
-  - intent: other
-  - action: utter_other
 - rule: out rule
   steps:
   - intent: out_of_scope
@@ -34,28 +30,24 @@ rules:
   steps:
   - intent: email_info
   - action: action_check_detail
+  - action: utter_ask_date
 - rule: affden Rule
   steps:
-#  - or:
   - intent: affirm
-#    - intent: deny
   - action: utter_info
   - action: utter_sales_contact
-
 - rule: deny rule
   steps:
   - intent: deny
   - action: utter_noprob
-
-
 - rule: ado Rule
   steps:
   - intent: ado
-  - action: utter_contact
+  - action: utter_confirm
 - rule: adont Rule
   steps:
   - intent: adont
-  - action: utter_noprob
+  - action: utter_no_worries
 - rule: search Rule
   steps:
   - intent: search_category
@@ -64,3 +56,15 @@ rules:
   steps:
   - intent: price_anew
   - action: utter_ask_price
+- rule: name Rule
+  steps:
+  - intent: name_info
+  - action: utter_contact
+- rule: date Rule
+  steps:
+  - intent: date_info
+  - action: utter_ask_category
+- rule: Startd Rule
+  steps:
+  - intent: get_started
+  - action: utter_welcome_basic

@@ -5,6 +5,8 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- get_started:
+    use_entities: true
 - email_info:
     use_entities: true
 - search_category:
@@ -91,7 +93,6 @@ slots:
     initial_value: null
     auto_fill: true
     influence_conversation: false
-
   ext:
     type: rasa.shared.core.slots.UnfeaturizedSlot
     initial_value: null
@@ -134,7 +135,7 @@ responses:
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_no_worries:
-  - text: No problem :)
+  - text: Okay :(, if you need us our event experts are available at Sales Phone Number.
   utter_ask_continue:
   - buttons:
     - payload: /restart
@@ -149,7 +150,10 @@ responses:
   utter_welcome_premium:
   - text: We are glad to see you :)
   utter_welcome_basic:
-  - text: You are not registered with us
+  - buttons:
+    - payload: Hey
+      title: Hey
+    text: Hope you are doing good in these tough times, let's start with a greeting message :)
   utter_ask_upgrade:
   - text: Do you want to register?
   utter_ask_city:
@@ -162,7 +166,7 @@ responses:
       title: Delhi
     - payload: Kolkata
       title: Kolkata
-    text: That's great, may I ask that in which "city" are you looking for a vendor? You can also enter your search:)
+    text: That's great, where do you want to organize your event? You can also enter your search:)
   utter_ask_price:
   - buttons:
     - payload: '10000'
@@ -173,7 +177,7 @@ responses:
       title: '50000'
     - payload: '100000'
       title: '100000'
-    text: So, how much are you planning to spend on this vendor's booking? (Personal advice, price does not matter that much on an occasion.)You can also input the price according to your budget.
+    text: Great, and what's your budget? (Personal advice, price does not matter that much on an occasion.)You can also input the price according to your budget.
   utter_ask_category:
   - buttons:
     - payload: Wedding
@@ -184,7 +188,7 @@ responses:
       title: Choreographer
     - payload: Photographer
       title: Photographer
-    text: Sure, please tell me for what occasion are you looking for a vendor? (It will help in finding the best vendor for your event) You could either choose from the options below or enter on your own.
+    text: Wonderful, what event service are you looking for? (It will help in finding the best vendor for your event) You could either choose from the options below or enter on your own.
   utter_greet_continue:
   - buttons:
     - payload: Let's get started
@@ -196,12 +200,6 @@ responses:
   - text: Happy to hear that , follow our insta handle ->> , our customer service details, here we will add all the ways a person can contact our support team. We can also hand it off to a sales executive from here.
   utter_inform:
   - text: To start with please tell me your name :)
-#  - buttons:
-#    - payload: Show me different  vendors
-#      title: Show me different vendors
-#    - payload: Show me the best "Five" vendors
-#      title: Show me the best "Five" vendors
-#    text: You are just one search away to find the best vendor for your occasion. Our organization has more than 1500+verified vendors across the country.
   utter_other:
   - text: Please input your search :)
   utter_default:
@@ -221,25 +219,31 @@ responses:
       title: No, not at the moment
     text: Would you like our sales team to get in touch with you ?
   utter_noprob:
-  - text: Okay :( , if you need us our event experts are available at Sales Phone Number.
-
+  - buttons:
+    - payload: 'Yes, I want to '
+      title: 'Yes, I want to '
+    - payload: 'No, I do not want to '
+      title: 'No, I do not want to '
+    text: Sorry to hear that, would you like to talk to our event expert?
   utter_ask_date:
   - text: Awesome, do you have a date in mind? (enter in dd/mm/yy format)
-
   utter_ask_datepicker:
   - custom:
       blocks:
-      - type: section
-        text: 
-          text: 'Can you tell me the start date?'
-          type: mrkdwn
-        accessory:
-          type: datepicker
+      - accessory:
           initial_date: '2019-05-21'
           placeholder:
-            type: plain_text
             text: Select a date
+            type: plain_text
+          type: datepicker
+        text:
+          text: Can you tell me the start date?
+          type: mrkdwn
+        type: section
+  utter_confirm:
+  - text: Sure, our sales team will get back to you soon :)
 actions:
+- utter_confirm
 - action_check_api
 - action_check_detail
 - deactivate_loop

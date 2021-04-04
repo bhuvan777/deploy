@@ -351,11 +351,13 @@ nlu:
     - No, not right now
     - No , I do not want to
     - No, I want to quit
+    - No, I do not
+    - No, I do not want to contact
+    - No, not now
 - intent: price_anew
   examples: |
     - Enter Price again
     - I will add the price again
-
 - intent: name_info
   examples: |
     - My name is [Bhuvan Purohit](name)
@@ -368,7 +370,6 @@ nlu:
     - it [runjhun](name)
     - sure , its [priyanka](name)
     - yes, its [prakash](name)
-
 - intent: date_info
   examples: |
     - [04/09/21](date)
@@ -376,4 +377,3 @@ nlu:
     - [21/12/21](date)
     - [02/04/21](date)
     - [06/06/21](date)
-
