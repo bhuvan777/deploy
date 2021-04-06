@@ -91,12 +91,12 @@ class ApiCheck(FormAction):
    @staticmethod
    def required_slots(tracker):
        if tracker.get_slot("filter") == "True":
-           return ["filter","name","email","date","category","city","price"]
+           return ["filter","name","email","event","date","category","city","price"]
        if tracker.get_slot("ext") == True:
            # print("ok")
-           return ["filter""name","email","date","category","city","price","ext"]
+           return ["filter""name","email","event","date","category","city","price","ext"]
        else:
-           return ["name","email","date","category","city","price"]
+           return ["name","email","event","date","category","city","price"]
 
 
    def validate_price(
@@ -106,13 +106,46 @@ class ApiCheck(FormAction):
            tracker: Tracker,
            domain: Dict[Text, Any],
    ) -> Dict[Text, Any]:
+       city = tracker.get_slot('city').lower()
+       info = tracker.get_slot('category')
+       price = tracker.get_slot('price')
+       print(price)
+       amt1=[]
        try:
-           int(value)
-           return {"price":value}
+           int(price)
+           x=True
        except:
-           print("not ok")
-           dispatcher.utter_message("Please enter the price again , I'll try to understand it this time")
-           return {"price": None}
+           x = False
+
+       if x==False:
+           for i in price:
+               if i == 'k':
+                   break
+               amt1.append(i)
+           price = int("".join(amt1)) * 1000
+       api = 'http://13.127.226.85:10041/eventtow/search-service/global?q={}&start=0&maxResults=50'.format(info)
+       current = requests.get(api).json()
+       prod = current['products']
+       place = []
+       for i in range(len(prod)):
+           if prod[i]['address'] == None:
+               pass
+           elif ((prod[i]['address']['city']).lower() == city) & (
+                   int(prod[i]['price']) <= (int(price) if (int(price) != 0) else int(prod[i]['price']))):
+               place.append(prod[i])
+       prod = place
+       if len(prod) == 0:
+           dispatcher.utter_message("Sorry, I was unable to find any {} category vendor in the city {}\nTry increasing your budget".format(info,city))
+           return {"price":None}
+       else:
+           return {"price":value}
+       # try:
+       #     int(value)
+       #     return {"price":value}
+       # except:
+       #     print("not ok")
+       #     dispatcher.utter_message("Please enter the price again , I'll try to understand it this time")
+
 
 
 
@@ -120,6 +153,7 @@ class ApiCheck(FormAction):
            dispatcher: CollectingDispatcher,
            tracker: Tracker,
            domain: Dict[Text, Any]) -> list:
+       global x
        info = tracker.get_slot('category')
        city = tracker.get_slot('city').lower()
        price = tracker.get_slot('price')
@@ -140,13 +174,49 @@ class ApiCheck(FormAction):
        print(tracker.get_slot('date'))
        print(tracker.get_slot('name'))
        place =[]
+       amt=[]
        if all != None:
            print("ok")
-       for i in range(len(prod)):
-           if prod[i]['address'] == None :
-               pass
-           elif ((prod[i]['address']['city']).lower() == city) & (int(prod[i]['price']) <= (int(price) if (int(price) != 0) else int(prod[i]['price']))):
-               place.append(prod[i])
+       try:
+           int(price)
+           for i in range(len(prod)):
+               if prod[i]['address'] == None:
+                   pass
+               elif ((prod[i]['address']['city']).lower() == city) & (
+                       int(prod[i]['price']) <= (int(price) if (int(price) != 0) else int(prod[i]['price']))):
+                   place.append(prod[i])
+
+       except:
+           amt1=[]
+           for i in price:
+               amt.append(i)
+
+           for i in range(len(amt) - 1):
+               if ((amt[i] == 'k') & (amt[i + 1] == '+')):
+                   x = True
+               else:
+                   x = False
+           for i in price:
+               if i == 'k':
+                   break
+               amt1.append(i)
+           price = int("".join(amt1)) * 1000
+           if (x == True):
+               for i in range(len(prod)):
+                   if prod[i]['address'] == None:
+                       pass
+                   elif ((prod[i]['address']['city']).lower() == city) & (
+                           int(prod[i]['price']) >= (int(price) if (int(price) != 0) else int(prod[i]['price']))):
+                       place.append(prod[i])
+           elif (x ==False):
+               for i in range(len(prod)):
+                   if prod[i]['address'] == None:
+                       pass
+                   elif ((prod[i]['address']['city']).lower() == city) & (
+                           int(prod[i]['price']) <= (int(price) if (int(price) != 0) else int(prod[i]['price']))):
+                       place.append(prod[i])
+
+
        prod = place
        print(len(prod))
        res=[]
@@ -183,7 +253,7 @@ class ApiCheck(FormAction):
            dispatcher.utter_message(text="Were you satisfied with these results?",buttons=buttons)
        else:
            dispatcher.utter_message("Sorry, I was unable to find any {} category vendor in the city {}\nTry increasing your budget".format(info,city))
-
+           return [SlotSet("price", None)]
 
        return [SlotSet("ext", None)]
 
@@ -206,7 +276,8 @@ class ApiCheck(FormAction):
            ],
            "price": [
                self.from_entity(entity="price", intent=["price_ext"]),
-               self.from_intent(intent=["deny","inform","thankyou"], value="0"),
+               self.from_intent(intent=["deny","inform","thankyou"], value="0")
+               # self.from_text(intent="price_info")
            ],
            "filter": [
                self.from_intent(intent=["filter+search_category","search_category"], value="True")

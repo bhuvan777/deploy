@@ -288,16 +288,15 @@ nlu:
     - around [50000](price)
     - around [80000](price) please
     - around [10000](price)
+    - [50k](price)
+    - [100k+](price)
+    - [25k](price)
+    - [80k+](price)
+    - [45k](price)
+    - [89k+](price)
     - [678999](price)
     - [56000](price)
     - [456000](price)
-    - [678000](price)
-    - [56789](price)
-    - [78900](price)
-    - [78000](price)
-    - [560000](price)
-    - [679000](price)
-    - [67900](price)
     - [6700000](price)
     - [800000](price)
     - [670000](price)
@@ -306,6 +305,12 @@ nlu:
     - [67800](price)
     - [890089](price)
     - [98990](price)
+    - [10k](price)
+    - [100k+](price)
+    - [50k](price)
+    - [150k+](price)
+    - [200k+](price)
+    - [45k](price)
 - intent: everything
   examples: |
     - show me [all](ext)
@@ -429,3 +434,9 @@ nlu:
     - in december
     - 5th april this year
     - 3rd february next year
+
+- intent: event_info
+  examples: |
+    - [Corporate](event)
+    - [Family & Friends](event)
+    - [Kids](event)

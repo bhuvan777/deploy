@@ -5,6 +5,8 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- event_info:
+    use_entities: true
 - date_format:
     use_entities: true
 - get_started:
@@ -67,10 +69,16 @@ entities:
 - ext
 - filter
 - mobile
+- event
 - price
 - vend
 - exercise
 slots:
+  event:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
   category:
     type: rasa.shared.core.slots.UnfeaturizedSlot
     initial_value: null
@@ -234,7 +242,7 @@ responses:
       title: 'No, I do not want to '
     text: Sorry to hear that, would you like to talk to our event expert?
   utter_ask_date:
-  - text: Awesome, do you have a date in mind? (enter in dd/mm/yy format)
+  - text: Thank you, do you have a date in mind? (enter in dd/mm/yy format)
   utter_ask_datepicker:
   - custom:
       blocks:
@@ -250,6 +258,8 @@ responses:
         type: section
   utter_confirm:
   - text: Sure, our sales team will get back to you soon :)
+  utter_ask_event:
+  - text: Awesome, so what event are you planning?
 actions:
 - utter_confirm
 - action_check_api
