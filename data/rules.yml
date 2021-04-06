@@ -13,7 +13,6 @@ rules:
   steps:
   - intent: greet
   - action: utter_greet
-  - action: utter_greet_continue
 - rule: inform Rule
   steps:
   - intent: inform

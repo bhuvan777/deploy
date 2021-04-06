@@ -140,7 +140,10 @@ slots:
     influence_conversation: false
 responses:
   utter_greet:
-  - text: Hey! I'm NameLess, the resident bot at Eventtow. I'm here to help you navigate the site!
+  - buttons:
+    - payload: Let's start
+      title: Let's start
+    text: Hey! I'm Eventsbot. My job is to make it easy for you to plan your events.
   utter_cheer_up:
   - image: https://i.imgur.com/nGF1K8f.jpg
     text: 'Here is something to cheer you up:'
@@ -155,7 +158,7 @@ responses:
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_no_worries:
-  - text: Okay :(, if you need us our event experts are available at Sales Phone Number.
+  - text: Sounds good, if you need us our event experts are available at Sales Phone Number >> +919151266402.
   utter_ask_continue:
   - buttons:
     - payload: /restart
@@ -178,25 +181,23 @@ responses:
   - text: Do you want to register?
   utter_ask_city:
   - buttons:
-    - payload: Mumbai
-      title: Mumbai
-    - payload: Pune
-      title: Pune
     - payload: Delhi
       title: Delhi
-    - payload: Kolkata
-      title: Kolkata
+    - payload: Mumbai
+      title: Mumbai
+    - payload: Bangalore
+      title: Bangalore
     text: That's great, where do you want to organize your event? You can also enter your search:)
   utter_ask_price:
   - buttons:
-    - payload: '10000'
-      title: '10000'
-    - payload: '25000'
-      title: '25000'
-    - payload: '50000'
-      title: '50000'
-    - payload: '100000'
-      title: '100000'
+    - payload: 10k
+      title: 10k
+    - payload: 50k+
+      title: 50k+
+    - payload: below 75k
+      title: below 75k
+    - payload: 100k+
+      title: 100k+
     text: Great, and what's your budget? (Personal advice, price does not matter that much on an occasion.)You can also input the price according to your budget.
   utter_ask_category:
   - buttons:
@@ -208,7 +209,7 @@ responses:
       title: Choreographer
     - payload: Photographer
       title: Photographer
-    text: Wonderful, what event service are you looking for? (It will help in finding the best vendor for your event) You could either choose from the options below or enter on your own.
+    text: Wonderful, what event service are you looking for? You could either choose from the options below or enter on your own.
   utter_greet_continue:
   - buttons:
     - payload: Let's get started
@@ -217,7 +218,7 @@ responses:
       I am glad to see you here. We at Eventtow are committed to providing the best service to our customers all you have to do is just select the vendor -> select the date -> and book. 
       It's that simple :) just like you purchase different products from online stores, but in our case when you book a vendor then you can lay it off to us to make your day special.
   utter_info:
-  - text: Happy to hear that , follow our insta handle ->> , our customer service details, here we will add all the ways a person can contact our support team. We can also hand it off to a sales executive from here.
+  - text: Happy to hear that, follow our Instagram handle to get the latest updates ->> https://www.instagram.com/event.tow/
   utter_ask_name:
   - text: To start with please tell me your name :)
   utter_other:
@@ -235,15 +236,15 @@ responses:
   - buttons:
     - payload: 'Yes, I want to '
       title: 'Yes, I want to '
-    - payload: No, not at the moment
-      title: No, not at the moment
+    - payload: No, not now
+      title: No, not now
     text: Would you like our sales team to get in touch with you ?
   utter_noprob:
   - buttons:
     - payload: 'Yes, I want to '
       title: 'Yes, I want to '
-    - payload: 'No, I do not want to '
-      title: 'No, I do not want to '
+    - payload: No, not now
+      title: No, not now
     text: Sorry to hear that, would you like to talk to our event expert?
   utter_ask_date:
   - text: Thank you, do you have a date in mind? (enter in dd/mm/yy format)
@@ -272,7 +273,10 @@ responses:
       title: Kids
     text: Awesome, so what event are you planning?
   utter_ask_mobile:
-    - text: Can you also tell me your phone no. ?
+  - buttons:
+    - payload: Skip
+      title: Skip
+    text: Can you also tell me your phone no. ?
 actions:
 - utter_confirm
 - action_check_api
