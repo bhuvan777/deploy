@@ -294,17 +294,6 @@ nlu:
     - [80k+](price)
     - [45k](price)
     - [89k+](price)
-    - [678999](price)
-    - [56000](price)
-    - [456000](price)
-    - [6700000](price)
-    - [800000](price)
-    - [670000](price)
-    - [890000](price)
-    - [789000](price)
-    - [67800](price)
-    - [890089](price)
-    - [98990](price)
     - [10k](price)
     - [100k+](price)
     - [50k](price)
@@ -440,3 +429,35 @@ nlu:
     - [Corporate](event)
     - [Family & Friends](event)
     - [Kids](event)
+
+- intent: mobile_info
+  examples: |
+    - [9858674839](mobile)
+    - [8938392885](mobile)
+    - [9867486932](mobile)
+    - [9573939573](mobile)
+    - [7686938572](mobile)
+    - [9385783758](mobile)
+    - [9465728495](mobile)
+    - [8869393995](mobile)
+    - [8928236778](mobile)
+    - [8909800293](mobile)
+    - [9836482648](mobile)
+    - [+14082348902](mobile)
+    - [+918935748392](mobile)
+    - [+918492849294](mobile)
+    - [09284726482](mobile)
+    - [+14807879352](mobile)
+    - [+14087590610](mobile)
+    - [8948284928](mobile)
+    - [8923658274](mobile)
+    - [9840242947](mobile)
+    - [4087879024](mobile)
+    - [9384928394](mobile)
+
+- intent: skip_in
+  examples: |
+    - Skip this
+    - skip
+    - SKIP
+    - Skip

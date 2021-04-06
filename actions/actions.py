@@ -62,7 +62,10 @@ class ActionCheck(Action):
            dispatcher: CollectingDispatcher,
            tracker: Tracker,
            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-       email_info = tracker.get_slot('email')
+       if tracker.get_slot('email') != None :
+           email_info = tracker.get_slot('email')
+       else:
+           email_info = tracker.get_slot('mobile')
        event = tracker.get_slot('category')
        place = tracker.get_slot('city')
        name = tracker.get_slot('name')
@@ -92,11 +95,11 @@ class ApiCheck(FormAction):
    def required_slots(tracker):
        if tracker.get_slot("filter") == "True":
            return ["filter","name","email","event","date","category","city","price"]
-       if tracker.get_slot("ext") == True:
-           # print("ok")
-           return ["filter""name","email","event","date","category","city","price","ext"]
+       # if tracker.get_slot("email") == None:
+       #     # print("ok")
+       #     return ["name","mobile","event","date","category","city","price"]
        else:
-           return ["name","email","event","date","category","city","price"]
+           return ["name","email","mobile","event","date","category","city","price"]
 
 
    def validate_price(
@@ -159,8 +162,8 @@ class ApiCheck(FormAction):
        price = tracker.get_slot('price')
        filter = tracker.get_slot('filter')
        all = tracker.get_slot('ext')
-       print(all)
-       print(filter)
+       mobile = tracker.get_slot('mobile')
+       print(mobile)
        # price_check = tracker.get_slot('price_check')
        print(price)
        # print(price_check)
@@ -260,12 +263,16 @@ class ApiCheck(FormAction):
    def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict[Text, Any]]]]:
        return {
            "sure":[
-               self.from_intent(intent="ado", value=True),
+               self.from_intent(intent="ado", value="true"),
                self.from_intent(intent="adont", value=False)
            ],
            "name":[
                self.from_entity(entity="name", intent=["name_info"]),
                self.from_intent(intent=["out_of_scope","deny","nlu_fallback"], value="customer")
+           ],
+           "mobile": [
+               self.from_entity(entity="mobile", intent=["mobile_info"]),
+               self.from_intent(intent=["skip_in","out_of_scope","deny","nlu_fallback"], value="null")
            ],
            "date":[
                self.from_entity(entity="date", intent=["date_info"]),
