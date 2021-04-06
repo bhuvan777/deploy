@@ -263,9 +263,16 @@ responses:
   utter_confirm:
   - text: Sure, our sales team will get back to you soon :)
   utter_ask_event:
-  - text: Awesome, so what event are you planning?
+  - buttons:
+    - payload: Corporate
+      title: Corporate
+    - payload: Family & Friends
+      title: Family & Friends
+    - payload: Kids
+      title: Kids
+    text: Awesome, so what event are you planning?
   utter_ask_mobile:
-  - text: Can you also tell me your phone no. ?
+    - text: Can you also tell me your phone no. ?
 actions:
 - utter_confirm
 - action_check_api
