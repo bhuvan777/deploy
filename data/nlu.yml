@@ -295,11 +295,8 @@ nlu:
     - [45k](price)
     - [89k+](price)
     - [10k](price)
-    - [100k+](price)
-    - [50k](price)
     - [150k+](price)
     - [200k+](price)
-    - [45k](price)
 - intent: everything
   examples: |
     - show me [all](ext)
@@ -423,13 +420,11 @@ nlu:
     - in december
     - 5th april this year
     - 3rd february next year
-
 - intent: event_info
   examples: |
     - [Corporate](event)
     - [Family & Friends](event)
     - [Kids](event)
-
 - intent: mobile_info
   examples: |
     - [9858674839](mobile)
@@ -454,10 +449,12 @@ nlu:
     - [9840242947](mobile)
     - [4087879024](mobile)
     - [9384928394](mobile)
-
 - intent: skip_in
   examples: |
     - Skip this
     - skip
     - SKIP
     - Skip
+- intent: nlu_fallback
+  examples: |
+    - oansovn a
