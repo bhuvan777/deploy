@@ -5,8 +5,9 @@ from typing import Any, Text, Dict, List, Union
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
-from database import DataValue
+# from database import DataValue
 from rasa_sdk.forms import FormAction
+import mysql.connector
 #
 # class HealthForm(FormAction):
 #
@@ -72,7 +73,26 @@ class ActionCheck(Action):
        date = tracker.get_slot('date')
        price = tracker.get_slot('price')
        allow = tracker.get_slot('sure')
-       print(allow)
+
+       def DataValue(name, email, date_info, event_info, place_info, price_info, allow):
+           mydb = mysql.connector.connect(
+               host="eventtow-restore.cfex2mlqblie.ap-south-1.rds.amazonaws.com",
+               user="root",
+               password="10578014",
+               port="3306",
+               database="eventtow")
+           mycursor = mydb.cursor()
+           # mycursor.execute("SELECT * FROM user where email=%s", [email])
+           # result = mycursor.fetchone()
+           # return result
+           sql = "INSERT INTO web_customer ( name_info,email,date_info, event_info, place_info, price_info,allow) VALUES (%s,%s,%s,%s,%s,%s,%s)"
+           val = (name, email, date_info, event_info, place_info, price_info, allow)
+           print(val)
+           mycursor.execute(sql, val)
+           mydb.commit()
+           print(mycursor.rowcount, "record inserted")
+           return 1
+
        res = DataValue(name, email_info, date, event, place, price, allow)
        print(res)
        # if res == 1 :
@@ -93,12 +113,12 @@ class ApiCheck(FormAction):
 
    @staticmethod
    def required_slots(tracker):
-       if tracker.get_slot("filter") == "True":
-           return ["filter","name","email","event","date","category","city","price"]
-       # if tracker.get_slot("email") == None:
-       #     # print("ok")
-       #     return ["name","mobile","event","date","category","city","price"]
-       else:
+       # if tracker.get_slot("filter") == "True":
+       #     return ["filter","name","email","event","date","category","city","price"]
+       # # if tracker.get_slot("email") == None:
+       # #     # print("ok")
+       # #     return ["name","mobile","event","date","category","city","price"]
+       # else:
            return ["name","email","mobile","event","date","category","city","price"]
 
 
@@ -171,15 +191,14 @@ class ApiCheck(FormAction):
        current= requests.get(api).json()
        prod = current['products']
        med=[]
-       print(len(prod))
-       print(prod[0]['price'])
-       print(tracker.get_slot('email'))
-       print(tracker.get_slot('date'))
-       print(tracker.get_slot('name'))
+       # print(len(prod))
+       # print(prod[0]['price'])
+       # print(tracker.get_slot('email'))
+       # print(tracker.get_slot('date'))
+       # print(tracker.get_slot('name'))
        place =[]
        amt=[]
-       if all != None:
-           print("ok")
+
        try:
            int(price)
            for i in range(len(prod)):
