@@ -4,7 +4,6 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - action: utter_greet_continue
   - intent: inform
   - action: action_check_api
   - active_loop: action_check_api
@@ -13,15 +12,6 @@ stories:
   - action: utter_info
   - action: utter_ask_sure
   - checkpoint: check_asked_question
-#  - action: utter_ask_name
-#  - intent: name_info
-#  - action: utter_contact
-#  - intent: email_info
-#  - action: action_check_detail
-#  - action: utter_ask_date
-#  - intent: date_info
-#  - action: utter_ask_category
-#  - intent: search_category
 - story: handle user affirm contact
   steps:
   - checkpoint: check_asked_question

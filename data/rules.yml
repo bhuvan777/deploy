@@ -4,7 +4,6 @@ rules:
   steps:
   - intent: goodbye
   - action: utter_goodbye
-  - action: utter_sales_contact
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge
@@ -21,10 +20,6 @@ rules:
   steps:
   - intent: out_of_scope
   - action: utter_ask_continue
-- rule: Vendor Rule
-  steps:
-  - intent: vendor_search
-  - action: utter_ask_category
 - rule: email Rule
   steps:
   - intent: email_info
@@ -68,4 +63,4 @@ rules:
 - rule: Startd Rule
   steps:
   - intent: get_started
-  - action: utter_welcome_basic
+  - action: utter_greet

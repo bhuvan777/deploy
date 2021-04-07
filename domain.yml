@@ -282,11 +282,11 @@ actions:
 - action_check_api
 - action_check_detail
 - deactivate_loop
+- utter_contact
 - utter_ask_category
 - utter_ask_city
 - utter_ask_continue
 - utter_ask_price
-- utter_contact
 - utter_goodbye
 - utter_greet
 - utter_greet_continue
@@ -294,7 +294,6 @@ actions:
 - utter_inform
 - utter_no_worries
 - utter_noprob
-- utter_sales_contact
 - utter_welcome_premium
 forms:
   action_check_api: {}
