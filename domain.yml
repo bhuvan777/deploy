@@ -63,6 +63,8 @@ intents:
     use_entities: true
 - date_info:
     use_entities: true
+- nlu_fallback:
+    use_entities: true
 entities:
 - sure
 - date
@@ -79,40 +81,64 @@ entities:
 - exercise
 slots:
   event:
-    type: list
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   category:
-    type: list
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   city:
-    type: list
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   email:
-    type: list
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   mobile:
-    type: list
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   sure:
-    type: bool
+    type: rasa.shared.core.slots.BooleanSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   date:
-    type: list
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   ext:
-    type: list
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   filter:
-    type: list
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   price:
-    type: list
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   name:
-    type: list
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
   requested_slot:
-    type: list
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
 responses:
   utter_greet:
@@ -248,8 +274,9 @@ responses:
       title: Kids
     text: Awesome, so what event are you planning?
   utter_ask_mobile:
-    - text: Can you also tell me your phone no. ?
+  - text: Can you also tell me your phone no. ?
 actions:
+- validate_api_form
 - utter_confirm
 - action_check_api
 - action_check_detail
@@ -258,7 +285,6 @@ actions:
 - utter_ask_city
 - utter_ask_continue
 - utter_ask_price
-- utter_contact
 - utter_goodbye
 - utter_greet
 - utter_greet_continue
@@ -266,8 +292,33 @@ actions:
 - utter_inform
 - utter_no_worries
 - utter_noprob
-- utter_sales_contact
 - utter_welcome_premium
+- api_form
 forms:
-  action_check_api: {}
+  api_form:
+    category:
+    - entity: category
+      type: from_entity
+    city:
+    - entity: city
+      type: from_entity
+    date:
+    - entity: date
+      type: from_entity
+    email:
+    - entity: email
+      type: from_entity
+    event:
+    - intent: event_info
+      type: from_intent
+      value: my_value
+    mobile:
+    - entity: mobile
+      type: from_entity
+    name:
+    - entity: name
+      type: from_entity
+    price:
+    - entity: price
+      type: from_entity
 e2e_actions: []

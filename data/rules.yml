@@ -4,7 +4,6 @@ rules:
   steps:
   - intent: goodbye
   - action: utter_goodbye
-  - action: utter_sales_contact
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge
@@ -26,11 +25,6 @@ rules:
   steps:
   - intent: vendor_search
   - action: utter_ask_category
-- rule: email Rule
-  steps:
-  - intent: email_info
-  - action: action_check_detail
-  - action: utter_ask_date
 - rule: affden Rule
   steps:
   - intent: affirm
@@ -50,22 +44,10 @@ rules:
   - intent: adont
   - action: action_check_detail
   - action: utter_no_worries
-- rule: search Rule
-  steps:
-  - intent: search_category
-  - action: action_check_api
 - rule: Price_anew Rule
   steps:
   - intent: price_anew
   - action: utter_ask_price
-- rule: name Rule
-  steps:
-  - intent: name_info
-  - action: utter_contact
-- rule: date Rule
-  steps:
-  - intent: date_info
-  - action: utter_ask_category
 - rule: Startd Rule
   steps:
   - intent: get_started
