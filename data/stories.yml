@@ -6,8 +6,8 @@ stories:
   - action: utter_greet
   - action: utter_greet_continue
   - intent: inform
-  - action: api_form
-  - active_loop: api_form
+  - action: action_check_api
+  - active_loop: action_check_api
   - active_loop: null
   - intent: affirm
   - action: utter_info
