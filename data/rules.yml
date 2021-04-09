@@ -12,7 +12,6 @@ rules:
   steps:
   - intent: greet
   - action: utter_greet
-  - action: utter_greet_continue
 - rule: inform Rule
   steps:
   - intent: inform
@@ -51,4 +50,4 @@ rules:
 - rule: Startd Rule
   steps:
   - intent: get_started
-  - action: utter_welcome_basic
+  - action: utter_greet
