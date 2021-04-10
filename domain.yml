@@ -249,7 +249,10 @@ responses:
       title: No, not now
     text: Sorry to hear that, would you like to talk to our event expert?
   utter_ask_date:
-  - text: Thank you, do you have a date in mind? (enter in dd/mm/yy format)
+  - buttons:
+    - payload: I'm flexible
+      title: I'm flexible
+    text: Thank you, do you have a date in mind? (enter in dd/mm/yy format)
   utter_ask_datepicker:
   - custom:
       blocks:
