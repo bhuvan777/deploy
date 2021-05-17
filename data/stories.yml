@@ -24,3 +24,16 @@ stories:
   - intent: adont
   - action: action_check_detail
   - action: utter_no_worries
+- story: interrupted Story
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: inform
+  - action: action_check_api
+  - intent: out_of_scope
+  - active_loop: action_check_api
+  - active_loop: null
+  - intent: affirm
+  - action: utter_info
+  - action: utter_ask_sure
+  - checkpoint: check_asked_question
