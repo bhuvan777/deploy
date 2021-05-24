@@ -25,6 +25,9 @@ rules:
   - intent: vendor_search
   - action: utter_ask_category
 - rule: affden Rule
+  condition:
+  - slot_was_set:
+    - requested_slot: null
   steps:
   - intent: affirm
   - action: utter_info

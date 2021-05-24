@@ -38,3 +38,89 @@ stories:
   - action: utter_info
   - action: utter_ask_sure
   - checkpoint: check_asked_question
+- story: Story from Conversation ID 27af53532440456e93b193e8d739c904
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: inform
+  - action: action_check_api
+  - active_loop: action_check_api
+  - slot_was_set:
+    - requested_slot: name
+  - intent: out_of_scope
+  - action: action_check_api
+  - slot_was_set:
+    - name: customer
+  - slot_was_set:
+    - requested_slot: email
+  - intent: email_info
+    entities:
+    - email: ioanvj@gmail.com
+  - slot_was_set:
+    - email: ioanvj@gmail.com
+  - action: action_check_api
+  - slot_was_set:
+    - email: ioanvj@gmail.com
+  - slot_was_set:
+    - requested_slot: mobile
+  - intent: skip_in
+  - action: action_check_api
+  - slot_was_set:
+    - mobile: 'null'
+  - slot_was_set:
+    - requested_slot: event
+  - intent: event_info
+    entities:
+    - event: Family & Friends
+  - slot_was_set:
+    - event: Family & Friends
+  - action: action_check_api
+  - slot_was_set:
+    - event: Family & Friends
+  - slot_was_set:
+    - requested_slot: date
+  - intent: date_format
+  - action: action_check_api
+  - slot_was_set:
+    - date: I'm flexible
+  - slot_was_set:
+    - requested_slot: category
+  - intent: search_category
+    entities:
+    - category: Makeup
+  - slot_was_set:
+    - category: Makeup
+  - action: action_check_api
+  - slot_was_set:
+    - category: Makeup
+  - slot_was_set:
+    - requested_slot: city
+  - intent: city_search
+    entities:
+    - city: Mumbai
+  - slot_was_set:
+    - city: Mumbai
+  - action: action_check_api
+  - slot_was_set:
+    - city: Mumbai
+  - slot_was_set:
+    - requested_slot: price
+  - intent: price_ext
+    entities:
+    - price: 75k
+  - slot_was_set:
+    - price: 75k
+  - action: action_check_api
+  - slot_was_set:
+    - price: 75k
+  - slot_was_set:
+    - ext: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: affirm
+  - action: utter_info
+  - action: utter_ask_sure
+  - intent: adont
+  - action: action_check_detail
+  - action: utter_no_worries

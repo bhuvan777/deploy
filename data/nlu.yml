@@ -147,6 +147,7 @@ nlu:
     - Let's started
     - Let's get start
     - Let's get started
+    - Let's start
 - intent: out_of_scope
   examples: |
     - that's not what I want to do
@@ -176,6 +177,8 @@ nlu:
     - why shoud I do that??
     - iuvui bui
     - fooling arund
+    - what is this
+    - bsdg
 - intent: thankyou
   examples: |
     - okay great thanks
@@ -203,6 +206,8 @@ nlu:
     - [prem@name.co.in](email)
     - [cool@gmail.in](email)
     - [okay@gmail.com](email)
+    - [hsh@gmaill.com](email)
+    - [ioanvj@gmail.com](email)
 - intent: filter+search_category
   examples: |
     - search for the [best](filter) [photographers](category) in [delhi](city)
@@ -297,6 +302,8 @@ nlu:
     - [10k](price)
     - [150k+](price)
     - [200k+](price)
+    - [10k](price) [+](price)
+    - below [75k](price)
 - intent: everything
   examples: |
     - show me [all](ext)
@@ -420,6 +427,7 @@ nlu:
     - in december
     - 5th april this year
     - 3rd february next year
+    - I'm flexible
 - intent: event_info
   examples: |
     - [Corporate](event)
