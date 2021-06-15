@@ -390,6 +390,7 @@ nlu:
     - [surendra](name) pratap
     - [rinku](name)
     - [ayush](name)
+    - [Sabina ](name)makeover
 - intent: date_info
   examples: |
     - [04/09/21](date)
